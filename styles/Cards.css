@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.container_crd {
+    display: grid;
+    grid-template-columns: repeat (3, 1fr);
+    grid-template-rows: repeat(2);
+}
+.card {
+    margin: 1.5em;
+}
+.card img{
+    width: 100%
+}
+.card>.info{
+    text-align: center;
+}
+@media(max-width: 800px){
+    .container_crd {
+    grid-template-columns: repeat (2, 1fr);
+    grid-template-rows: repeat(4);
+}
+} 
+@media(max-width: 600px){
+    .container_crd {
+    grid-template-columns: repeat (1, 1fr);
+    grid-template-rows: repeat(6);
+}
+.card {
+    margin-inline: 0;
+}
+} 
