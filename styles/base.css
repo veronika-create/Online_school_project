@@ -203,6 +203,10 @@ body {
     
 }
 @media (max-width: 800px){
+    .container_sv {
+    width: 80%;
+    }
+    
     .content{
         height: 100%;
         flex-direction: column-reverse;
@@ -214,9 +218,24 @@ body {
         justify-content: center;
         flex-wrap: wrap;
     }
+    .right-side{
+    width: 40%;
+    height: 50%;
+    margin-left: 0px;
+    margin-top: 20%;
+    display: column;
+    padding-left: 0%;
+}
+    .input-box{
+    width: 90%;
+    height: 50px;
+    margin: 20px 0;
+}
+
     .details {
         margin-right: 20px;
     }
+
     .details:last-child{
         margin-right: 0;
     }
@@ -284,7 +303,12 @@ footer.ft-title{
     
 }
 .ft-title{
+<<<<<<< HEAD
     padding-left: 40px;
+=======
+    padding-left: 0px;
+    padding-bottom: 2%;
+>>>>>>> test1
 }
 
 @media (min-width: 1500px) {
