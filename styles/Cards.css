@@ -11,10 +11,40 @@
     margin: 1.5em;
 }
 .card img{
-    width: 100%
+    width: 100%;
+    
 }
 .card>.info{
     text-align: center;
+}
+.card a{
+    
+    color: beige;
+    font-size: 1.7rem;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.button1 input[type="button"]{
+    color:white;
+    background:#3e2093 ;
+    font-size:30px;
+    border: none;
+    outline: none;
+    margin-top: 3%;
+    margin-right: 0%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px 0rgba(34, 60, 80, 0.2);
+    
+}
+.text1{
+    font-size:50px;
+    font-weight: 600;
+    color: #3e2093;
+    margin-bottom: 10px;
+    
+    
 }
 @media(max-width: 800px){
     .container_crd {
