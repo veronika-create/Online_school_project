@@ -45,8 +45,26 @@
 
 }
 
+.img_al{
+    margin-left: 60px;
+}
+.img_al1{
+    margin-left: 20%;
+}
+.img_al2{
+    margin-left: 25%;
+    margin-bottom: 5%;
+   
+}
+.img_al3{
+    margin-left: 35%;
+   
+}
+.img_al5{
+    margin-left: 23%;
+   
+}
 
-    
     
 @media(max-width: 800px){
     .p_pr{
