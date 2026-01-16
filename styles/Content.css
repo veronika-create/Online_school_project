@@ -27,7 +27,8 @@
     margin-top: 50px;
     padding: 40px;
 }
-.p_pr{
+.p_pr,
+.p1{
     text-align:justify;
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(255, 253, 254);
@@ -42,4 +43,19 @@
     border-radius: 5px;
     box-shadow: 4px 4px 8px 0rgba(34, 60, 80, 0.2);
 
+}
+
+
+    
+    
+@media(max-width: 800px){
+    .p_pr{
+        font-size: 160%;
+    }
+}
+ 
+@media(max-width: 600px){
+    .p_pr{
+        font-size: 140%;
+    }
 }

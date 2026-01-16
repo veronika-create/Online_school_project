@@ -14,7 +14,8 @@
     
 }
 .card img{
-    width: 100%;
+    width: 60%;
+    margin-left: 20%;
     
 }
 .card>.info{
@@ -46,9 +47,21 @@
     font-weight: 600;
     color: #3e2093;
     margin-bottom: 10px;
-    
-    
+
 }
+.img_3,
+.img_4{
+     border-radius: 100%;
+     font-size: 10%;
+
+}
+
+.img_4,
+.img_5,
+.img_6{
+    margin-left: 20%;
+}
+
 @media(max-width: 800px){
     .container_crd {
         grid-template-columns: repeat (2, 1fr);
@@ -57,7 +70,11 @@
     
     img {
         width: 90%;
-        
+    }
+    .img_4,
+    .img_5,
+    .img_6{
+        width: 65%;
     }
 }
  
