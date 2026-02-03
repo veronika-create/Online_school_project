@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Массивы</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/Log_in.css">
+    <link rel="stylesheet" href="styles/Content.css">
+    <link rel="stylesheet" href="styles/Cards.css">
+
+   
+    
+     
+
+</head>
+
+
+<body>
+    <div class="main-container">
+<!-- навигационная панель -->
+
+    <div class="navbar">
+        
+        
+        <div class="drop">
+
+              <button class="nav-btn">&#8776;</button>
+                <div class="nav-list">
+            
+                <a href="index.html">Главная</a>
+                <a href="Syntacsis.html">Основы синтаксиса</a>
+                <a href="History.html">История PHP</a>
+                <a href="Massyvy.html">Массивы</a>
+                <a href="Obgects.html">Объекты и классы</a>
+                <a href="Methods.html">Методы</a>
+                <a href="MySQL_in_PHP.html">MySQL в PHP</a>
+                <a href="Cookies.html">Фалы cookie</a>
+                <a href="Profile_std.html">
+                <img src="img/character-avatar-isolated_729149-194801.avif" alt="" width="70"></a>
+        </div>
+     
+       </div> 
+    
+
+ </div>
+
+        <h1>Онлайн школа</h1>
+    <div>
+<div class="h2_pr">
+    <h2>Методы</h2>
+</div>
+
+<div class="img_meth2">
+    <img src="img//php8.webp" alt="" width="600" >
+</div>
+
+
+<div class="p_pr">
+    <p> 
+  Кроме обычных методов и свойств с разными модификаторами доступа класс может содержать <b>статические методы</b> и <b>свойства</b>. Такие методы и свойства помечаются ключевым словом. <br><br>
+Статические методы и свойства создаются один раз для всего класса и относятся ко всему классу, тогда как для нестатических свойств и методов создается отдельная копия для каждого объекта.<br><br>
+<?php<br>
+class Person<br>
+{<br>
+    public $name, $age;<br>
+    static $retirenmentAge = 65;<br>
+    function __construct($name, $age)<br>
+    {<br>
+        $this->name = $name;<br>
+        $this->age = $age; <br>
+    }<br>
+    function sayHello()<br>
+    {<br>
+        echo "Привет, меня зовут $this->name<br>";
+    }<br>
+    static function printPerson($person)<br>
+    {<br>
+        echo "Имя: $person->name Возраст: $person->age<br>";
+    }<br>
+}<br>
+?><br><br>
+  Здесь определено статическое свойство retirenmentAge, которое хранит пенсионный возраст. Если возраст - это показатель конкретного человека и может отличаться для разных людей, то пенсионный возраст, как правило, устанавливается общий для всех. Поэтому это свойство можно сделать статическим - оно относится ко всему классу Person, а не устанавливается отдельно для каждого объекта. Для объявления статического свойства перед его именем ставится модификатор static:<br><br>
+
+static $retirenmentAge = 65;<br><br>
+ 
+Также в классе определен статический метод printPerson(), который выводит информацию о человеке, который в качестве параметра передается в метод. Этот метод также не зависит от конкретного объекта класса <b>Person</b>, а относится ко всему классу Person в целом. Чтобы объявить статический метод, также перед словом function ставится модификатор static:<br><br>
+
+
+static function printPerson($person)<br>
+{<br>
+    echo "Имя: $person->name Возраст: $person->age";<br>
+}<br><br>
+ При обращении к статическим методам и свойствам используется имя класса и оператор ::, вместо операции доступа ->, так как статический метод относится ко всему классу, а не к конкретному объекту этого класса.<br><br>
+<?php<br>
+class Person<br>
+{<br>
+    public $name, $age;<br>
+    static $retirenmentAge = 65;<br>
+    function __construct($name, $age)<br>
+    {<br>
+        $this->name = $name;<br>
+        $this->age = $age;<br>
+    }<br>
+    function sayHello()<br>
+    {<br>
+        echo "Привет, меня зовут $this->name"< br >;<br>
+    }
+    static function printPerson($person)<br>
+    {<br>
+        echo "Имя: $person->name Возраст: $person->age" < br >;<br>
+    }<br>
+}<br>
+$tom = new Person("Tom", 36);<br>
+// вызов нестатического метода<br>
+$tom->sayHello();<br><br>
+ 
+// вызов статического метода
+Person::printPerson($tom);
+// обращение к статическому свойству
+echo "Пенсионный возраст: " . Person::$retirenmentAge . "< br >";
+?><br><br>
+Вывод программы:<br><br>
+Привет, меня зовут Tom<br>
+Имя: Tom	Возраст: 36<br>
+Пенсионный возраст: 65<br><br>
+Для обращения к статическим свойствам и методам внутри класса вместо имени класса может применяться ключевое слово <b>self</b>. Например, добавим в класс человека метод, который будет вычислять, сколько человеку осталось до пенсии:<br><br>
+<?php<br>
+class Person<br>
+{<br>
+    public $name, $age;<br>
+    static $retirenmentAge = 65;<br>
+    function __construct($name, $age)<br>
+    {<br>
+        $this->name = $name;<br>
+        $this->age = $age;<br>
+    }<br>
+    function sayHello()<br>
+    {<br>
+        echo "Привет, меня зовут $this->name< br >";<br>
+    }<br>
+    static function printPerson($person)<br>
+    {<br>
+        echo "Имя: $person->name Возраст: $person->age< br >";<br>
+    }<br>
+    function checkAge()<br>
+    {<br>
+        if($this->age >= self::$retirenmentAge)<br>
+            echo "Пора на пенсию< br >";<br>
+        else<br>
+            echo "До пенсии еще " . (Person::$retirenmentAge - $this->age) . " лет< br >";<br>
+    }<br>
+}<br>
+$tom = new Person("Tom", 36);<br>
+$tom->checkAge();<br>
+?><br><br>
+
+Вывод программы:<br><br>
+ До пенсии еще 29 лет<br><br>
+Стоит отметить, что в статических методах мы можем обращаться только к статическим свойствам и методам. Но не можем обращаться к НЕстатическим свойствам и методам через $this. <br><br>Например:<br><br>
+static function printPerson($person)<br><br>
+{<br>
+    echo "Имя: $person->name Возраст: $person->age< br >";<br>
+    // в статических методах можно обращаться к статическим методам и свойствам<br>
+    echo "Пенсионный возраст: " . self::$retirenmentAge . "< br >";<br>
+    // но нельзя обращаться к нестатическим методам и свойствам<br>
+    // echo "Имя: " . $this->name . "< br >"; // так нельзя<br>
+    // $this->sayHello(); // так нельзя<br>
+}<br><br>
+Здесь в статическом методе printPerson() мы можем обратиться к статической переменной <b>retirenmentAge</b>:<br><br>
+echo "Пенсионный возраст: " . self::$retirenmentAge . "< br >";<br><br>
+Но не можем обратиться к нестатическим свойствам и методам: <br><br>
+// echo "Имя: " . $this->name . "< br >"; // так нельзя<br>
+// $this->sayHello(); // так нельзя <br><br>
+При этом статические методы и свойства также могут иметь модификаторы доступа. Например, изменим класс <b>Person</b> следующим образом:<br><br>
+<?php<br>
+class Person<br>
+{<br>
+    public $name;<br>
+    private $id;<br>
+    private static $counter=0;<br>
+    function __construct($name)<br>
+    {<br>
+        self::$counter++;<br>
+        $this->id = self::$counter;<br>
+        $this->name = $name;<br>
+    }<br>
+     
+    static function getCounter()<br>
+    {<br>
+        return self::$counter;<br>
+    }<br>
+    function getId()<br>
+    {<br>
+        return $this->id;<br>
+    }<br>
+}<br>
+$tom = new Person("Tom");<br>
+$bob = new Person("Bob");<br>
+echo "$tom->name имеет id: " . $tom->getId() . "< br >";<br>
+echo "$bob->name имеет id: " . $bob->getId() . "< br >";<br>
+echo "Всего пользователей: " .  Person::getCounter();<br>
+?><br><br>
+ В классе Person определено свойство $id, которое представляет идентификатор пользователя. И также определено приватное статическое свойство $counter, которое хранит общее количество созданных пользователей. В конструкторе мы увеличиваем статическую переменную на единицу, а затем устанавливаем ее значение для свойства $id.<br><br>
+Количество созданных пользователей - это атрибут, общий для всего класса, который независит от конкретного объекта. Однако в то же время нежелательно, чтобы его извне могли произвольно изменить. Поэтому свойство $counter определено как приватное. А чтобы увидеть его значение, определен статический метод <b>getCounter()</b>.<br><br>
+Вывод программы:<br><br>
+Tom имеет id: 1<br>
+Bob имеет id: 2<br>
+Всего пользователей: 2<br>
+    </p>
+</div>
+<div class="img_mas5">
+    <img src="img/php6.webp" alt="" srcset="" width="800px" >
+
+
+</div>
+
+<!-- Футер -->
+<div class="container">
+
+
+    <footer>
+        <section class="ft-main">
+            <div class="ft-main-item">
+
+                <h2 class="ft-title">Fast links</h2>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="Profile_std.html">Личный кабинет</a></li>
+                    <li><a href="About_us.html">О нас</a></li>
+                    
+                </ul>
+
+
+                
+            </div>
+            <div class="ft-main-item">
+
+                <h2 class="ft-title">Contacts</h2>
+                <ul>
+                    <li>+7 965 120 22 46</li>
+                    <li>Online.school@yandex.ru</li>
+                    
+                </ul> 
+            </div>
+        </section>
+
+        <section class="ft-legal">
+            <ul class="ft-legal-list">
+        
+                <li>&copy: Яланская Вероника Артуровна Copyright 2026 Online_School</li>
+            </ul>
+
+
+
+        </section>
+    </footer>
+</div>
+
+</body>
+
+
+</html>

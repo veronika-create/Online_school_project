@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL в PHP </title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/Log_in.css">
+    <link rel="stylesheet" href="styles/Content.css">
+    <link rel="stylesheet" href="styles/Cards.css">
+
+   
+    
+     
+
+</head>
+
+
+<body>
+    <div class="main-container">
+<!-- навигационная панель -->
+
+    <div class="navbar">
+        
+        
+        <div class="drop">
+
+              <button class="nav-btn">&#8776;</button>
+                <div class="nav-list">
+            
+                <a href="index.html">Главная</a>
+                <a href="Syntacsis.html">Основы синтаксиса</a>
+                <a href="History.html">История PHP</a>
+                <a href="Massyvy.html">Массивы</a>
+                <a href="Obgects.html">Объекты и классы</a>
+                <a href="Methods.html">Методы</a>
+                <a href="MySQL_in_PHP.html">MySQL в PHP</a>
+                <a href="Cookies.html">Фалы cookie</a>
+                <a href="Profile_std.html">
+                <img src="img/character-avatar-isolated_729149-194801.avif" alt="" width="70"></a>
+        </div>
+     
+       </div> 
+    
+
+ </div>
+
+        <h1>Онлайн школа</h1>
+    <div>
+<div class="h2_pr">
+    <h2>MySQL в PHP</h2>
+</div>
+
+<div class="img_meth2">
+    <img src="img/php5.webp" alt="" width="600" >
+</div>
+
+
+<div class="p_pr">
+    <p> Как правило, в качестве хранилища данных используются базы данных. PHP позволяет использовать различные системы управления базами данных, но наиболее популярной на сегодняшний день в связке с PHP является СУБД MySQL. <br><br>MySQL бесплатную систему управления базами данных, которая разрабатывается компанией Oracle и которая позволяет взаимодействовать с базой данных с помощью команд языка SQL. MySQL относительно легко устанавливать и настраивать. Более того эта СУБД может работать на всех популярных ОС - на Windows, MacOS, Linux. MySQL вполне подходит как для маленьких, так и для больших проектов.<br><br>Сам процесс установки и конфигурации MySQL можно посмотреть в соответствующем руководстве - Руководство по MySQL. В данном случае мы будем рассматривать только взаимодействие PHP с MySQL.<br><br>
+   Формально есть два способа для подключения к MySQL из PHP:<br><br> <b>Библиотека MySQLi (Improved MySQL) <br>Библиотека PDO (PHP Data Objects)</b><br><br>
+    Преимуществом pdo является то, что оно позволяет работать не только с mysql, но и с еще рядом систем баз данных - Firebird, PostreSQL, SQLite, Oracle, MS SQL Server и т.д. С помощью PDO можно использовать общий подход для подключения к поддерживаемым системам баз данных, где часто достаточно изменить строку подключения, что естественно добавляет гибкости. Также особенностью PDO является то, что эта библиотека представляет объектно-ориентированный подход для работы с базами данных.<br><br>Расширение MySQLi ограничено только одной СУБД - MySQL. MySQLi предоставляет два способа взаимодействия с базами данных: объектно-ориентированный и процедурный. К преимуществам MySQLi нередко относят то, что она больше ориентирована на специфику MySQL, специфичные для этой СУБД возможности и быстрее применяет новвоведения, которая появляются с новыми выпусками MySQL. Кроме того, также в качестве преимущества MySQLi нередко заявляют о большей производительности и скорости по сравнению с PDO.<br><br>Как бы то ни было, в настоящее время распространены оба подхода. Поэтому далее мы рассмотрим, как работать с MySQL как через PDO, так и через MySQLi.<br><br>Обе библиотеки - и mysqli и pdo_mysql по умолчанию включены в базовый комплект PHP. И нам только надо немного изменить файл конфигурации php.ini, чтобы начать работу с этими библиотеками.<br><br>
+<b>Подключение mysqli</b><br><br>Чтобы использовать библиотеку mysqli для работы с MySQL, нам надо указать соответствующее расширение в файле php.ini. По умолчанию оно уже имеется в файле, только оно закомментировано. Так, найдем в файле php.ini следующую строку:<br><br>
+;extension=mysqli<br><br>
+Раскомментируем ее, убрав знак точки с запятой:<br><br>
+extension=mysqli<br><br>
+<b>Подключение pdo_mysql</b><br><br>
+Чтобы использовать библиотеку pdo_mysql найдём в файле php.ini следующую строку:<br><br>
+extension=pdo_mysql<br><br>
+ Раскомментируем ее, убрав точку с запятой:<br><br>
+extension=pdo_mysql<br><br>
+Теперь мы можем использовать оба расширения для работы с базой данных MySQL.
+
+    </p>
+</div>
+<div class="img_mas5">
+    <img src="img/php4.webp" alt="" srcset="" width="800px" >
+
+
+</div>
+
+<!-- Футер -->
+<div class="container">
+
+
+    <footer>
+        <section class="ft-main">
+            <div class="ft-main-item">
+
+                <h2 class="ft-title">Fast links</h2>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="Profile_std.html">Личный кабинет</a></li>
+                    <li><a href="About_us.html">О нас</a></li>
+                    
+                </ul>
+
+
+                
+            </div>
+            <div class="ft-main-item">
+
+                <h2 class="ft-title">Contacts</h2>
+                <ul>
+                    <li>+7 965 120 22 46</li>
+                    <li>Online.school@yandex.ru</li>
+                    
+                </ul> 
+            </div>
+        </section>
+
+        <section class="ft-legal">
+            <ul class="ft-legal-list">
+        
+                <li>&copy: Яланская Вероника Артуровна Copyright 2026 Online_School</li>
+            </ul>
+
+
+
+        </section>
+    </footer>
+</div>
+
+</body>
+
+
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объекты и классы </title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/Log_in.css">
+    <link rel="stylesheet" href="styles/Content.css">
+    <link rel="stylesheet" href="styles/Cards.css">
+
+   
+    
+     
+
+</head>
+
+
+<body>
+    <div class="main-container">
+<!-- навигационная панель -->
+
+    <div class="navbar">
+        
+        
+        <div class="drop">
+
+              <button class="nav-btn">&#8776;</button>
+                <div class="nav-list">
+            
+                <a href="index.html">Главная</a>
+                <a href="Syntacsis.html">Основы синтаксиса</a>
+                <a href="History.html">История PHP</a>
+                <a href="Massyvy.html">Массивы</a>
+                <a href="Obgects.html">Объекты и классы</a>
+                <a href="Methods.html">Методы</a>
+                <a href="MySQL_in_PHP.html">MySQL в PHP</a>
+                <a href="Cookies.html">Фалы cookie</a>
+                <a href="Profile_std.html">
+                <img src="img/character-avatar-isolated_729149-194801.avif" alt="" width="70"></a>
+        </div>
+     
+       </div> 
+    
+
+ </div>
+
+        <h1>Онлайн школа</h1>
+    <div>
+<div class="h2_pr">
+    <h2>Объекты и классы</h2>
+</div>
+
+<div class="img_meth2">
+    <img src="img/php9.webp" alt="" width="600" >
+</div>
+
+
+<div class="p_pr">
+    <p> 
+    При создании программы на PHP и отдельных ее блоков нам вполне может хватить той функциональности, которую представляют функции. Однако PHP имеет и другие возможности по созданию программ, которые представляет объектно-ориентированное программирование. В ряде случаев программы, использующие ООП, проще в понимании, их легче поддерживать и изменять. <br><br>
+    Ключевыми понятиями парадигмы ООП являются понятия "класс" и "объект". Описанием объекта является класс, а объект представляет экземпляр этого класса. Можно провести следующую аналогию: например, у каждого человека есть имя, определенный возраст, вес, какие-то другие параметры. То есть некоторый шаблон, который содержит набор параметров человека - этот шаблон можно назвать классом. А реально же существующий человек с конкретным именем, возрастом, весом и т.д. является объектом или экземпляром этого класса. <br><br>
+    Для создания класса в PHP используется ключевое слово class, после которого идет название класса и фигурные скобки {} - блок кода класса. Например, новый класс, представляющий пользователя:<br><br>
+    class Person<br>
+    {}<br><br>
+   Чтобы создать объект класса Person, применяется ключевое слово new:<br><br>
+    <?php<br>
+    class Person<br>
+    { }<br><br>
+ 
+    $person = new Person();<br>
+    print_r($person);<br>
+    ?><br><br>
+     В данном случае переменная $person является объектом класса Person. С помощью функции print_r() можно вывести содержимое объекта, как и в случае с массивами.<br><br>
+   При этом неважно, определяется класс до или после создания объекта. Например, мы можем сначала определить переменную класса, а потом определить этот класс:<br><br>
+    <?php<br>
+    $person = new Person();<br><br>
+ 
+    class Person<br>
+    { }<br>
+    ?><br><br>
+    <b>Свойства и методы</b><br><br>
+   Класс может содержать переменные, которые описывают какие-то признаки объекта, его состояние и которые еще называют свойствами или атрибутам. И также класс класс может содержать функции, которые еще называют методами и которые определяют его поведение.<br><br>
+   Так, добавим в класс Person несколько свойств и методов:<br><br> 
+    <?php<br>
+    class Person<br>
+    {<br>
+    public $name, $age;<br><br>
+      
+    function hello()<br>
+    {<br>
+    echo "Hello!<br>";
+    }<br>
+    }<br>
+    $tom = new Person();<br>
+    $tom->name = "Tom"; // установка свойства $name<br>
+    $tom->age = 36; // установка свойства $age<br>
+    $personName = $tom->name;    // получение значения свойства $name<br>
+    echo "Имя пользователя: " . $personName . "< br > ";<br>
+    $tom->hello(); // вызов метода hello()<br>
+    print_r($tom);<br>
+    ?><br><br>
+   Здесь класс Person содержит два свойства: $name и $age. Свойства объявляются как обычные переменные, перед которыми стоит модификатор доступа - в данном случае модификатор public.<br><br>
+   Методы представляют обычные функции, которые выполняют определенные действия. Здесь функция hello() просто выводит приветствие.<br><br>
+   После создания объекта класса Person:<br><br>
+    $tom = new Person();<br><br>
+    Мы можем через имя переменной класса обращаться к его свойствам и методам. Чтобы обратиться к свойствам и методам объекта применяется оператор доступа ->. Например, установить значения свойств:<br><br>
+    $tom->name = "Tom"; // установка свойства $name<br>
+    $tom->age = 36; // установка свойства $age<br><br>
+   Или получить значение (например, присвоить его переменной):<br><br>
+    $personName = $tom->name;    // получение значения свойства $name<br><br>
+    Или вызвать методы объекта:<br><br>
+    $tom->hello(); // вызов метода hello()<br><br>
+    В итоге мы получим следующий вывод браузера:<br><br>
+    Имя пользователя: Tom<br>
+    Hello!<br>
+    Person Object ( [name] => Tom [age] => 36 )<br><br>
+    При этом свойствам можно задать в классе некоторые начальные значения:<br><br>
+    <?php<br>
+    class Person<br>
+    {   <br>
+    public $name = "Undefined", $age = 18;<br><br>
+    function hello()<br>
+    {<br>
+        echo "Hello!<br>";<br>
+    }<br>
+    }<br>
+    $tom = new Person();<br>
+    $tom->age = 36; // установка свойства $age<br><br>
+    echo "Имя пользователя: " . $tom->name . "< br >";<br>
+    echo "Возраст пользователя: " . $tom->age . "< br >";<br>
+    ?><br><br>
+    Вывод брузера:<br><br>
+    Имя пользователя: Undefined<br>
+    Возраст пользователя: 36<br>
+    Ключевое слово this<br><br>
+    Для обращения к свойствам и методам объекта внутри его класса применяется ключевое слово this. Например, определим в классе метод для вывода информации об объекте:<br><br>
+    <?php<br>
+    class Person<br>
+    {<br>
+    public $name = "Undefined", $age = 18;<br><br>
+    function displayInfo()<br>
+    {<br>
+        echo "Name: " . $this->name ."; Age: " . $this->age . "< br >";<br>
+        // также можно написать<br>
+        // echo "Name: $this->name; Age: $this->age<br>";<br>
+    }<br>
+}<br>
+$tom = new Person();<br>
+$tom -> name = "Tom";<br>
+$tom -> displayInfo();   // Name: Tom; Age: 18<br>
+?><br>
+
+    </p>
+</div>
+<div class="img_mas5">
+    <img src="img/php10.webp" alt="" srcset="" width="800px" >
+
+
+</div>
+
+<!-- Футер -->
+<div class="container">
+
+
+    <footer>
+        <section class="ft-main">
+            <div class="ft-main-item">
+
+                <h2 class="ft-title">Fast links</h2>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="Profile_std.html">Личный кабинет</a></li>
+                    <li><a href="About_us.html">О нас</a></li>
+                    
+                </ul>
+
+
+                
+            </div>
+            <div class="ft-main-item">
+
+                <h2 class="ft-title">Contacts</h2>
+                <ul>
+                    <li>+7 965 120 22 46</li>
+                    <li>Online.school@yandex.ru</li>
+                    
+                </ul> 
+            </div>
+        </section>
+
+        <section class="ft-legal">
+            <ul class="ft-legal-list">
+        
+                <li>&copy: Яланская Вероника Артуровна Copyright 2026 Online_School</li>
+            </ul>
+
+
+
+        </section>
+    </footer>
+</div>
+
+</body>
+
+
+</html>

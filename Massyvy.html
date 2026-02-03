@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Массивы</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/Log_in.css">
+    <link rel="stylesheet" href="styles/Content.css">
+    <link rel="stylesheet" href="styles/Cards.css">
+
+   
+    
+     
+
+</head>
+
+
+<body>
+    <div class="main-container">
+<!-- навигационная панель -->
+
+    <div class="navbar">
+        
+        
+        <div class="drop">
+
+              <button class="nav-btn">&#8776;</button>
+                <div class="nav-list">
+            
+                <a href="index.html">Главная</a>
+                <a href="Syntacsis.html">Основы синтаксиса</a>
+                <a href="History.html">История PHP</a>
+                <a href="Massyvy.html">Массивы</a>
+                <a href="Obgects.html">Объекты и классы</a>
+                <a href="Methods.html">Методы</a>
+                <a href="MySQL_in_PHP.html">MySQL в PHP</a>
+                <a href="Cookies.html">Фалы cookie</a>
+                <a href="Profile_std.html">
+                <img src="img/character-avatar-isolated_729149-194801.avif" alt="" width="70"></a>
+        </div>
+     
+       </div> 
+    
+
+ </div>
+
+        <h1>Онлайн школа</h1>
+    <div>
+<div class="h2_pr">
+    <h2>Массивы</h2>
+</div>
+
+<div class="img_hi2">
+    <img src="img//php3.webp" alt="" width="800" >
+</div>
+
+
+<div class="p_pr">
+    <p><b>Массив</b> - это специальная переменная, которая может содержать несколько значений одновременно. <br><br>Если у Вас есть список элементов (например: список названий автомобилей), хранение автомобилей в одиночных переменных может выглядеть следующим образом: <br><br>$cars1 = "Вольво"; <br>$cars2 = "БМВ"; <br>$cars3 = "Тойота";<br><br>nОднако, что делать, если Вам нужно вывести из цикла автомобили, и нужно найти конкретный? А, если у Вас не 3 машины, а 300? <br><br> Решение заключается в создании массива!<br><br>Массив может содержать много значений под одним именем, и Вы можете получить доступ к значениям, ссылаясь на номер индекса.<br> <br>
+    <b>PHP Создание массива</b><br>
+    PHP функция array() используется для создания массива:<br><br>
+    array();<br><br>
+    PHP существует три типа массивов:<br><br>
+    <b>Индексный массив</b> - Массивы с числовым индексом<br>
+    <b>Ассоциативный массив</b> - Массивы с именованными ключами<br>
+    <b>Многомерный массив</b> - Массивы, содержащие один или несколько массивов<br><br>
+    <b>PHP Индексные массивы</b><br><br>
+        Существует два способа создания индексированных массивов:<br>
+    Индекс может быть назначен автоматически (индекс всегда начинается с 0), как это:<br><br>
+    $cars = array("Вольво", ",БМВ", "Тойота");<br><br>
+    или индекс можно назначить вручную:<br><br>
+    $cars[0] = "Вольво";<br>
+    $cars[1] = "БМВ"; <br>
+    $cars[2] = "Тойота"; <br><br>
+    Следующий пример демонстрирует создание индексированного массива с именем $cars, назначает три элемента к нему, а зате мпечатает текст, содержащий значения массива:<br><br>
+    Пример:<br><br>
+    <?php<br>
+    $cars = array("Вольво", "БМВ", "Тойота");<br>
+    echo "Мне нравятся машины " . $cars[0] . ", "<br> . $cars[1] . " и " . $cars[2] . ".";<br>
+    ?><br><br>
+    <b>PHP Получить длину массива</b><br><br>
+    Функция count() используется для возврата длины (количество элементов) из массива:<br><br>
+    Пример:<br><br>
+    <?php<br>
+    $cars = array("Вольво", "БМВ", "Тойота");<br>
+    echo count($cars);<br>
+    ?><br><br>
+    <b>PHP Цикл через индексированный массив</b><br><br>
+    Чтобы просмотреть и распечатать все значения индексированного массива, можно использовать цикл for, например:<br><br>
+    Пример:<br><br>
+    <?php<br>
+    $cars = array("Вольво", "БМВ", "Тойота");<br>
+    $arrlength = count($cars);<br>
+    for($x = 0; $x < $arrlength; $x++) {<br>
+    echo $cars[$x];<br>
+    echo "<br>";
+    }<br>
+    ?><br><br>
+    <b>PHP Ассоциативный массив</b><br><br>
+    <b>Ассоциативные массивы</b> - это массивы с именованными ключами, назначенными им.<br><br>
+    Существует два способа создания ассоциативного массива: <br><br>
+    $age = array("Андрей"=>"35", "Сергей"=>"37", "Леня"=>"43");<br><br>
+    или:<br><br>
+    $age['Андрей'] = "35";<br>
+    $age['Сергей'] = "37";<br>
+    $age['Леня'] = "43";<br><br>
+    Затем именованные ключи можно использовать в скрипте:<br><br>
+    Пример:<br><br>
+    <br><?php
+    <br>$age = array("Андрей"=>"35", "Сергей"=>"37", "Леня"=>"43");
+    <br>echo "Андрей возраст " . $age['Андрей'] . " лет.";
+    <br>?><br><br>
+    <b>PHP Цикл через ассоциативный массив</b><br><br>
+    Перебрать и напечатать все значения из ассоциативного массива можно использовать цикл foreach, как это:<br><br>
+    Пример:<br><br>
+    <?php<br>
+    $age = array("Андрей"=>"35", "Сергей"=>"37", "Леня"=>"43");<br><br>
+    foreach($age as $x => $x_value) {<br>
+    echo "Ключ=" . $x . ", Значение=" . $x_value;<br>
+    echo "";<br>
+    }<br>
+    ?><br>
+    </p>
+</div>
+<div class="img_mas5">
+    <img src="img/php.webp" alt="" srcset="" width="800px" >
+
+
+</div>
+
+<!-- Футер -->
+<div class="container">
+
+
+    <footer>
+        <section class="ft-main">
+            <div class="ft-main-item">
+
+                <h2 class="ft-title">Fast links</h2>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="Profile_std.html">Личный кабинет</a></li>
+                    <li><a href="About_us.html">О нас</a></li>
+                    
+                </ul>
+
+
+                
+            </div>
+            <div class="ft-main-item">
+
+                <h2 class="ft-title">Contacts</h2>
+                <ul>
+                    <li>+7 965 120 22 46</li>
+                    <li>Online.school@yandex.ru</li>
+                    
+                </ul> 
+            </div>
+        </section>
+
+        <section class="ft-legal">
+            <ul class="ft-legal-list">
+        
+                <li>&copy: Яланская Вероника Артуровна Copyright 2026 Online_School</li>
+            </ul>
+
+
+
+        </section>
+    </footer>
+</div>
+
+</body>
+
+
+</html>
