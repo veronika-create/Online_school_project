@@ -44,6 +44,9 @@
     box-shadow: 4px 4px 8px 0rgba(34, 60, 80, 0.2);
 
 }
+.p1 a {
+    text-decoration: none;
+}
 
 .img_al{
     margin-left: 60px;
@@ -51,18 +54,35 @@
 .img_al1{
     margin-left: 20%;
 }
+
+
 .img_al2{
     margin-left: 25%;
     margin-bottom: 5%;
    
 }
+.img_les2 {
+    margin-left: 20%;
+    margin-bottom: 5%;
+}
+.img_hi2{
+    margin-left: 20%;
+}
 .img_al3{
     margin-left: 35%;
    
 }
+
 .img_al5{
     margin-left: 23%;
-   
+}
+.img_les5{
+    margin-left: 8%;
+    margin-bottom: 10%;
+}
+.img_his5{
+    margin-left: 20%;
+    margin-bottom: 10%;
 }
 
     
