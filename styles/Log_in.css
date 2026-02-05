@@ -1,3 +1,8 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 .container_log {
     width: 100%;
     max-width: 1000px;
@@ -74,7 +79,12 @@
     display: inline-block;
 
 }
-.button1 input[type="button"]{
+.button11{
+    display: inline-block;
+
+}
+.button1 input[type="button"],
+.button11 input[type="button"]{
     color:white;
     background:#3e2093 ;
     border: none;
