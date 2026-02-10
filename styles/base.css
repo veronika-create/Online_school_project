@@ -9,6 +9,7 @@
 .navbar {
 display: flex;
 background-color: rgb(85, 83, 83);
+
 }
 
 .nav-list {
@@ -97,6 +98,7 @@ img{
 
 html{
     height: 100%;
+    width: 100%;
 }    
 body {
     min-height: 100%;

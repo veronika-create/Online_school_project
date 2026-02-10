@@ -1,0 +1,90 @@
+.input-box_les input{
+    width: 60%;
+    height: 100%;
+    border: none;
+    background: #f0f1f8;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 30%;
+    margin-top: 5%;
+
+}
+.input-box_les input,
+.input-box_les textarea,
+.password{
+    width: 60%;
+    height: 100%;
+    border: none;
+    background: #f0f1f8;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 30%;
+}
+
+.name_l{
+    font-size:40px;
+    font-weight: 600;
+    color: #3e2093;
+    margin-top: -6%;
+    
+}
+.name1_l{
+    font-size:35px;
+    font-weight: 600;
+    color: #3e2093;
+    margin-top: -10%;
+}
+.text_l{
+    font-size:40px;
+    font-weight: 600;
+}
+.text1_l{
+    margin-top: -3%;
+}
+
+@media (max-width: 800px){
+    .container_log {
+    width: 80%;
+    }
+     .content_log{
+        height: 100%;
+        flex-direction: column-reverse;
+    }
+    .input-box_les,
+    name1{
+        width: 90%;
+        height: 50px;
+        margin-left: -10%;
+        
+    }
+    .topic-text_reg{
+        font-size:30px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        margin-left: 20%;
+        
+    }
+     .name_l{
+    font-size:23px;
+    margin-top: -30%;
+    margin-left: 50%;
+   
+    
+    }
+    .name1_l{
+        font-size:25px;
+        margin-top: -43%;
+        margin-left: 35%;
+        
+    }
+    .text_l{
+        margin-top: 25%;
+         margin-bottom: -35%;
+    }
+    .text1_l{
+        margin-right: 20%;
+        margin-left: -10%;
+        margin-top: -10%;
+
+    }
+}
