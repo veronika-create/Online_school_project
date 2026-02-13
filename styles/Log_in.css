@@ -96,6 +96,10 @@
     box-shadow: 4px 4px 8px 0rgba(34, 60, 80, 0.2);
 }
 
+
+
+
+
 @media (max-width: 800px){
     .container_log {
     width: 80%;
