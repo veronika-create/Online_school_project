@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Профиль</title>
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/Content.css">
+    <link rel="stylesheet" href="{% static "styles/base.css" %}">
+    <link rel="stylesheet" href="{% static "styles/Content.css" %}">
    
 </head>
 
@@ -33,7 +33,7 @@
                 <a href="MySQL_in_PHP.html">MySQL в PHP</a>
                 <a href="Cookies.html">Фалы cookie</a>
                 <a href="Profile_std.html">
-                <img src="img/character-avatar-isolated_729149-194801.avif" alt="" width="70"></a>
+                <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70"></a>
         </div>
      
        </div> 
@@ -48,7 +48,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Форма обратной связи</title>
-    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="{% static "styles/base.css" %}">
 </head>
 
 <body>
@@ -101,7 +101,7 @@
 </div>
 
 <div class="img_al2">
-<img src="img/man.png" alt="" srcset="" width="70%">
+<img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
 </div>
 
 <!-- Футер -->

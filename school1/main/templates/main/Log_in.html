@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Войти</title>
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/Log_in.css">
-    <link rel="stylesheet" href="styles/Content.css">
+    <link rel="stylesheet" href="{% static "styles/base.css" %}">
+    <link rel="stylesheet" href="{% static "styles/Log_in.css" %}">
+    <link rel="stylesheet" href="{% static "styles/Content.css" %}">
    
     
      
@@ -38,7 +38,7 @@
                 <a href="Finance.html">Финансы</a>
                 <a href="Teachers.html">Преподаватели</a>
                 <a href="Log_in.html">
-                <img src="img/login-icon-vector.jpg" alt="" width="70"></a>
+                <img src="{% static "img/login-icon-vector.jpg" %}" alt="" width="70"></a>
                 
         </div>
      
@@ -58,7 +58,7 @@
       <div class="topic-text_reg">Регистрация</div>
         
         <div class="img">
-            <img src="img/character-avatar-isolated_729149-194801.avif" alt="" width="70%">
+            <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70%">
         </div>
                 <form action="#">
                     <div class="input-box_reg">
@@ -96,7 +96,7 @@
 </div>
  
 <div class="img_al2">
-<img src="img/man.png" alt="" srcset="" width="70%">
+<img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
 </div>
 
 <!-- Футер -->
