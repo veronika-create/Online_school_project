@@ -36,3 +36,6 @@ def Marketing(request):
 
 def Programming(request):
     return render(request, 'main/Programming.html')
+
+def Teachers(request):
+    return render(request, 'main/Teachers.html')
