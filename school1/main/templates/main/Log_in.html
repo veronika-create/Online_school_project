@@ -1,57 +1,16 @@
+
+{% extends "main/base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Войти</title>
+     {% block title %}<title>Войти</title>{% endblock title %}
+    {% block css %}
     <link rel="stylesheet" href="{% static "styles/base.css" %}">
     <link rel="stylesheet" href="{% static "styles/Log_in.css" %}">
     <link rel="stylesheet" href="{% static "styles/Content.css" %}">
-   
+   {% endblock css %}
     
-     
-
-</head>
-
-
-<body>
-    <div class="main-container">
-<!-- навигационная панель -->
-
-    <div class="navbar">
-        
-        <div class="drop">
-
-              <button class="nav-btn">&#8776;</button>
-                <div class="nav-list">
-            
-               <a href="index.html">Главная</a>
-                <a href="About_us.html">О нас</a>
-                <a href="Programming.html">Программирование</a>
-                <a href="Design.html">Дизайн</a>
-                <a href="Marketing.html">Маркетинг</a>
-                <a href="Analytic.html">Аналитика</a>
-                <a href="Managing.html">Управление</a>
-                <a href="Finance.html">Финансы</a>
-                <a href="Teachers.html">Преподаватели</a>
-                <a href="Log_in.html">
-                <img src="{% static "img/login-icon-vector.jpg" %}" alt="" width="70"></a>
-                
-        </div>
-     
-       </div> 
-       
-    </div>
-
-        <h1>Онлайн школа</h1>
-    <div>
-
-
-
-<!-- Фома регистрации -->
+ {% block log_in %}
 <div class="container_log">
     <div class="content_log">
 
@@ -98,50 +57,4 @@
 <div class="img_al2">
 <img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
 </div>
-
-<!-- Футер -->
-<div class="container">
-
-
-    <footer>
-        <section class="ft-main">
-            <div class="ft-main-item">
-
-                <h2 class="ft-title">Fast links</h2>
-                <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="Log_in.html">Войти</a></li>
-                    <li><a href="About_us.html">О нас</a></li>
-                    
-                </ul>
-
-
-                
-            </div>
-            <div class="ft-main-item">
-
-                <h2 class="ft-title">Contacts</h2>
-                <ul>
-                    <li>+7 965 120 22 46</li>
-                    <li>Online.school@yandex.ru</li>
-                    
-                </ul> 
-            </div>
-        </section>
-
-        <section class="ft-legal">
-            <ul class="ft-legal-list">
-        
-                <li>&copy: Яланская Вероника Артуровна Copyright 2026 Online_School</li>
-            </ul>
-
-
-
-        </section>
-    </footer>
-</div>
-
-</body>
-
-
-</html>
+{% endblock log_in %}

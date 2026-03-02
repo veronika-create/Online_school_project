@@ -17,7 +17,7 @@ Including another URLconf
 from django.urls import include, path
 
 urlpatterns = [
-    path('blog/', include('main.urls')),
+    path('', include('main.urls', namespace='main')),
 
 ]
 
