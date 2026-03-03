@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -7,10 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online school</title>
-   
     {% block css %}
 
     {% endblock css %}
+   
+
 </head>
 
 
@@ -25,43 +27,41 @@
 
               <button class="nav-btn">&#8776;</button>
                 <div class="nav-list">
-                <a href="{% url "main:index" %}">Главная</a>
-                <a href="{% url "main:About_us" %}">О нас</a>
-                <a href="{% url "main:Programming" %}">Программирование</a>
-                <a href="{% url "main:Design" %}">Дизайн</a>
-                <a href="{% url "main:Marketing" %}">Маркетинг</a>
-                <a href="{% url "main:Analytic" %}">Аналитика</a>
-                <a href="{% url "main:Managing" %}">Управление</a>
-                <a href="{% url "main:Finance" %}">Финансы</a>
-                <a href="{% url "main:Teachers" %}">Преподаватели</a>
-                <a href="{% url "main:Log_in" %}">
-                <img src="{% static "img/login-icon-vector.jpg" %}" alt="" width="70"></a>
+                <a href="main_std.html">Главная</a>
+                <a href="Syntacsis.html">Основы синтаксиса</a>
+                <a href="History.html">История PHP</a>
+                <a href="Massyvy.html">Массивы</a>
+                <a href="Obgects.html">Объекты и классы</a>
+                <a href="Methods.html">Методы</a>
+                <a href="MySQL_in_PHP.html">MySQL в PHP</a>
+                <a href="Cookies.html">Фалы cookie</a>
+                <a href="Profile_std.html">
+                <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70"></a>
         </div>
      
-       </div>  
+       </div> 
     
-    </div> 
+    </div>
 
         <h1>Онлайн школа</h1>
     <div>
-<div class="first_ph"><img src="{% static "img/он.об.png" %}" alt=""></div>
-<!-- Форма обратной связи -->
  {% block connect %}{% endblock connect %}
 <!-- карточки предметов -->
-   {% block cards_of_lessons %}{% endblock cards_of_lessons %}
-<!-- Форма регистрации -->
- {% block log_in %}{% endblock log_in %}
+{% block cards_of_lessons %}{% endblock cards_of_lessons %}
+{% block log_in %}{% endblock log_in %}
 <!-- Футер -->
 <div class="container">
+
+
     <footer>
         <section class="ft-main">
             <div class="ft-main-item">
 
                 <h2 class="ft-title">Fast links</h2>
                 <ul>
-                    <li><a href="{% url "main:index" %}">Главная</a></li>
-                    <li><a href="{% url "main:Log_in" %}">Войти</a></li>
-                    <li><a href="{% url "main:About_us" %}">О нас</a></li>
+                    <li><a href="main_std.html">Главная</a></li>
+                    <li><a href="Profile_std.html">Личный кабинет</a></li>
+                    <li><a href="about_us_std.html">О нас</a></li>
                     
                 </ul>
 
@@ -81,6 +81,7 @@
 
         <section class="ft-legal">
             <ul class="ft-legal-list">
+        
                 <li>&copy: Яланская Вероника Артуровна Copyright 2026 Online_School</li>
             </ul>
 
