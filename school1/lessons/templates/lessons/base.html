@@ -27,15 +27,15 @@
 
               <button class="nav-btn">&#8776;</button>
                 <div class="nav-list">
-                <a href="main_std.html">Главная</a>
-                <a href="Syntacsis.html">Основы синтаксиса</a>
-                <a href="History.html">История PHP</a>
-                <a href="Massyvy.html">Массивы</a>
-                <a href="Obgects.html">Объекты и классы</a>
-                <a href="Methods.html">Методы</a>
-                <a href="MySQL_in_PHP.html">MySQL в PHP</a>
-                <a href="Cookies.html">Фалы cookie</a>
-                <a href="Profile_std.html">
+                <a href="{% url "lessons:index" %}">Главная</a>
+                <a href="{% url "lessons:Syntacsis" %}">Основы синтаксиса</a>
+                <a href="{% url "lessons:History" %}">История PHP</a>
+                <a href="{% url "lessons:Massyvy" %}">Массивы</a>
+                <a href="{% url "lessons:Obgects" %}">Объекты и классы</a>
+                <a href="{% url "lessons:Methods" %}">Методы</a>
+                <a href="{% url "lessons:MySQL_in_PHP" %}">MySQL в PHP</a>
+                <a href="{% url "lessons:Cookie" %}">Фалы cookie</a>
+                <a href="{% url "lessons:Profile_std" %}">
                 <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70"></a>
         </div>
      
@@ -46,9 +46,10 @@
         <h1>Онлайн школа</h1>
     <div>
  {% block connect %}{% endblock connect %}
+ {% block log_in %}{% endblock log_in %}
 <!-- карточки предметов -->
 {% block cards_of_lessons %}{% endblock cards_of_lessons %}
-{% block log_in %}{% endblock log_in %}
+
 <!-- Футер -->
 <div class="container">
 
@@ -59,9 +60,9 @@
 
                 <h2 class="ft-title">Fast links</h2>
                 <ul>
-                    <li><a href="main_std.html">Главная</a></li>
-                    <li><a href="Profile_std.html">Личный кабинет</a></li>
-                    <li><a href="about_us_std.html">О нас</a></li>
+                    <li><a href="{% url "lessons:index" %}">Главная</a></li>
+                    <li><a href="{% url "lessons:Profile_std" %}">Личный кабинет</a></li>
+                    <li><a href="{% url "lessons:about_us_std" %}">О нас</a></li>
                     
                 </ul>
 

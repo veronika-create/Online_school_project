@@ -56,13 +56,13 @@
     </div>
     <div class="p1">
         <P>
-            <a href="Syntacsis.html">Основы синтаксиса</a><br><br>
-            <a href="History.html">История PHP</a><br><br>
-            <a href="Massyvy.html">Массивы</a><br><br>
-            <a href="Obgects.html">Объекты и классы</a><br><br>
-            <a href="Methods.html">Методы</a><br><br>
-            <a href="MySQL_in_PHP.html">MySQL в PHP</a><br><br>
-            <a href="Cookies.html">Фалы cookie</a>
+            <a href="{% url "lessons:Syntacsis" %}">Основы синтаксиса</a><br><br>
+            <a href="{% url "lessons:History" %}">История PHP</a><br><br>
+            <a href="{% url "lessons:Massyvy" %}">Массивы</a><br><br>
+            <a href="{% url "lessons:Obgects" %}">Объекты и классы</a><br><br>
+            <a href="{% url "lessons:Methods" %}">Методы</a><br><br>
+            <a href="{% url "lessons:MySQL_in_PHP" %}">MySQL в PHP</a><br><br>
+            <a href="{% url "lessons:Cookie" %}">Фалы cookie</a>
         </P>
     </div>
 
@@ -72,7 +72,7 @@
 
     <div class="p1">
         <p><b>Нужна помощь? Задай нам вопрос!</b><br><br><br>
-        <a href="connect.html">Форма обратной связи</a>
+        <a href="{% url "lessons:index" %}">Форма обратной связи</a>
         </p>
     </div>
 

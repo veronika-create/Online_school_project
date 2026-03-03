@@ -1,4 +1,3 @@
-{% extends "groups/base.html" %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -7,15 +6,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>База знаний</title>
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/Log_in.css">
-    <link rel="stylesheet" href="styles/Content.css">
-    <link rel="stylesheet" href="styles/Cards.css">
+    <title>Online school</title>
+    {% block css %}
 
+    {% endblock css %}
    
     
-     
 
 </head>
 
@@ -31,14 +27,14 @@
 
               <button class="nav-btn">&#8776;</button>
                 <div class="nav-list">
-               <a href="main_prep.html">Главная</a>
+                <a href="main_prep.html">Главная</a>
                 <a href="about_us_prep.html">О нас</a>
                 <a href="Courses.html">Мои курсы</a>
                 <a href="Groups.html">Мои группы</a>
                 <a href="base_of_knowledge.html">База знаний</a>
                 <a href="Tests.html"> Тесты</a>
                 <a href="Lectures.html"> Лекции</a>
-                <a href="Help_prep.html"> Помощь</a>
+                <a href="connect.html"> Помощь</a>
                 <a href="profile_prep.html">
                 <img src="img/character-avatar-isolated_729149-194801.avif" alt="" width="70"></a>
         </div>
@@ -47,31 +43,15 @@
     
     </div>
 
-        <h1>Онлайн школа </h1>
+        <h1>Онлайн школа</h1>
     <div>
+<div class="first_ph"><img src="img/он.об.png" alt=""></div>
+<!-- Форма обратной связи -->
+  {% block connect %}{% endblock connect %}
 
-<div class="lessons">
-    <div class="h2_pr">
-        <h2> База знаний <br>
-        <br>
-        </h2>
-    </div>
-    <div class="h3_pr">
-        <h3>Курс по PHP <br>
-        Лекции</h3>
-    </div>
-    <div class="p1">
-        <P>
-            
-        </P>
-    </div>
-   
- 
 
-</div>
-<div class="img_al2">
-<img src="img/man.png" alt="" srcset="" width="70%">
-</div>
+<!-- карточки предметов -->
+     {% block cards_of_lessons %}{% endblock cards_of_lessons %}
 <!-- Футер -->
 <div class="container">
 
