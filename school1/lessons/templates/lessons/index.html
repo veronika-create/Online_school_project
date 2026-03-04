@@ -57,13 +57,13 @@
 {% endblock connect %}
 <!-- карточки предметов -->
  {% block cards_of_lessons %}
-    <div class="container_crd">
+<div class="container_crd">
         <div class="card">
-            <a href="Analytic.html"><img src="{% static "img/Аналитика.webp" %}" alt=""></a>
+            <a href="{% url "main:Analytic" %}"><img src="{% static "img/Аналитика.webp" %}" alt=""></a>
             <div class="info">
-                <a href="Analytic.html">
+                <a href="{% url "main:Analytic" %}">
                     <div class="text1">Аналитика</div>
-                    <a href="Analytic.html">
+                    <a href="{% url "main:Analytic" %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
@@ -73,11 +73,11 @@
         </div>
         
         <div class="card">
-            <a href="Design.html"><img src="{% static "img/Дизайн.webp" %}" alt=""></a>
+            <a href="{% url "main:Design" %}"><img src="{% static "img/Дизайн.webp" %}" alt=""></a>
              <div class="info">
-             <a href="Design.html">
+             <a href="{% url "main:Design" %}">
                     <div class="text1">Дизайн</div>
-                    <a href="Design.html">
+                    <a href="{% url "main:Design" %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
@@ -87,12 +87,12 @@
         
         </div>
         <div class="card">
-            <a href="Programming.html"><img src="{% static "img/Прог.jpg" %}" alt=""></a>
+            <a href="{% url "main:Programming" %}"><img src="{% static "img/Прог.jpg" %}" alt=""></a>
              <div class="info">
-                 <a href="Programming.html">
+                 <a href="{% url "main:Programming" %}">
                     <div class="text1">Программирование</div>
-                    <a href="Programming.html">
-                        <div class="button1">
+                    <a href="{% url "main:Programming" %}">
+                        <div class="bututon1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
                     </a>
@@ -101,11 +101,11 @@
         
         </div>
         <div class="card">
-            <a href="Marketing.html"><img src="{% static "img/Маркетинг.webp" %}" alt=""></a>
+            <a href="{% url "main:Marketing" %}"><img src="{% static "img/Маркетинг.webp" %}" alt=""></a>
              <div class="info">
-              <a href="Marketing.html">
+              <a href="{% url "main:Marketing" %}">
                     <div class="text1">Маркетинг</div>
-                    <a href="Marketing.html">
+                    <a href="{% url "main:Marketing" %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
@@ -115,11 +115,11 @@
         
         </div>
         <div class="card">
-            <a href="Managing.html"><img src="{% static "img/Управление.jpg" %}" alt=""></a>
+            <a href="{% url "main:Managing" %}"><img src="{% static "img/Управление.jpg" %}" alt=""></a>
              <div class="info">
-                <a href="Managing.html">
+                <a href=""{% url "main:Managing" %}">
                     <div class="text1">Управление</div>
-                    <a href="Managing.html">
+                    <a href=""{% url "main:Managing" %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
@@ -129,11 +129,11 @@
         
         </div>
         <div class="card">
-            <a href="Finance.html"><img src="{% static "img/Финансы.webp" %}" alt=""></a>
+            <a href="{% url "main:Finance" %}"><img src="{% static "img/Финансы.webp" %}" alt=""></a>
              <div class="info">
-               <a href="Finance.html">
+               <a href="{% url "main:Finance" %}">
                     <div class="text1">Экономика</div>
-                    <a href="Finance.html">
+                    <a href="{% url "main:Finance" %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>

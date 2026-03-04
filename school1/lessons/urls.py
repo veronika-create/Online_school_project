@@ -14,6 +14,6 @@ urlpatterns = [
     path('MySQL_in_PHP/', views.MySQL_in_PHP, name='MySQL_in_PHP'),
     path('Obgects/', views.Obgects, name='Obgects'),
     path('Profile_std/', views.Profile_std, name='Profile_std'),
-    path('Syntacsis', views.Syntacsis, name='Syntacsis'),
+    path('Syntacsis/', views.Syntacsis, name='Syntacsis'),
 
 ]

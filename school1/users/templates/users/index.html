@@ -1,52 +1,12 @@
 {% extends "users/base.html" %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ {% block css %} 
     <title>Online school</title>
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/Cards.css">
-   
-    
-     
-
-</head>
-
-
-<body>
-    <div class="main-container">
-<!-- навигационная панель -->
-
-    <div class="navbar">
-        
-        
-        <div class="drop">
-
-              <button class="nav-btn">&#8776;</button>
-                <div class="nav-list">
-                <a href="about_us_adm.html">О нас</a>
-                <a href="main_adm.html">Главная</a>
-                <a href="List_of_teachers.html">Список учителей</a><br><br>
-                <a href="Massages.html">Обращения</a><br><br>
-                <a href="registed_users.html">Пользователи</a><br><br>
-                <a href="list_of_teachers_for_groups.html">Группы</a>
-                <a href="list_of_students.html">Ученики</a>
-                <a href="profile_prep.html">
-                <img src="img/character-avatar-isolated_729149-194801.avif" alt="" width="70"></a>
-        </div>
-     
-       </div> 
-    
-    </div>
-
-        <h1>Онлайн школа</h1>
-    <div>
-<div class="first_ph"><img src="img/он.об.png" alt=""></div>
+    <link rel="stylesheet" href="{% static "styles/base.css" %}">
+    <link rel="stylesheet" href="{% static "styles/Cards.css" %}">
+ {% endblock css %} 
 <!-- Форма обратной связи -->
+ {% block connect %}
  <div class="container_sv">
     <div class="content">
         <div class="left-side">
@@ -94,14 +54,16 @@
     </div>
 
 </div>
+{% endblock connect %}
 <!-- карточки предметов -->
-    <div class="container_crd">
+ {% block cards_of_lessons %}
+<div class="container_crd">
         <div class="card">
-            <a href="Analytic.html"><img src="img/Аналитика.webp" alt=""></a>
+            <a href="{% url "main:Analytic" %}"><img src="{% static "img/Аналитика.webp" %}" alt=""></a>
             <div class="info">
-                <a href="Analytic.html">
+                <a href="{% url "main:Analytic" %}">
                     <div class="text1">Аналитика</div>
-                    <a href="Analytic.html">
+                    <a href="{% url "main:Analytic" %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
@@ -111,11 +73,11 @@
         </div>
         
         <div class="card">
-            <a href="Design.html"><img src="img/Дизайн.webp" alt=""></a>
+            <a href="{% url "main:Design" %}"><img src="{% static "img/Дизайн.webp" %}" alt=""></a>
              <div class="info">
-             <a href="Design.html">
+             <a href="{% url "main:Design" %}">
                     <div class="text1">Дизайн</div>
-                    <a href="Design.html">
+                    <a href="{% url "main:Design" %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
@@ -125,12 +87,12 @@
         
         </div>
         <div class="card">
-            <a href="Programming.html"><img src="img/Прог.jpg" alt=""></a>
+            <a href="{% url "main:Programming" %}"><img src="{% static "img/Прог.jpg" %}" alt=""></a>
              <div class="info">
-                 <a href="Programming.html">
+                 <a href="{% url "main:Programming" %}">
                     <div class="text1">Программирование</div>
-                    <a href="Programming.html">
-                        <div class="button1">
+                    <a href="{% url "main:Programming" %}">
+                        <div class="bututon1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
                     </a>
@@ -139,11 +101,11 @@
         
         </div>
         <div class="card">
-            <a href="Marketing.html"><img src="img/Маркетинг.webp" alt=""></a>
+            <a href="{% url "main:Marketing" %}"><img src="{% static "img/Маркетинг.webp" %}" alt=""></a>
              <div class="info">
-              <a href="Marketing.html">
+              <a href="{% url "main:Marketing" %}">
                     <div class="text1">Маркетинг</div>
-                    <a href="Marketing.html">
+                    <a href="{% url "main:Marketing" %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
@@ -153,11 +115,11 @@
         
         </div>
         <div class="card">
-            <a href="Managing.html"><img src="img/Управление.jpg" alt=""></a>
+            <a href="{% url "main:Managing" %}"><img src="{% static "img/Управление.jpg" %}" alt=""></a>
              <div class="info">
-                <a href="Managing.html">
+                <a href=""{% url "main:Managing" %}">
                     <div class="text1">Управление</div>
-                    <a href="Managing.html">
+                    <a href=""{% url "main:Managing" %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
@@ -167,11 +129,11 @@
         
         </div>
         <div class="card">
-            <a href="Finance.html"><img src="img/Финансы.webp" alt=""></a>
+            <a href="{% url "main:Finance" %}"><img src="{% static "img/Финансы.webp" %}" alt=""></a>
              <div class="info">
-               <a href="Finance.html">
+               <a href="{% url "main:Finance" %}">
                     <div class="text1">Экономика</div>
-                    <a href="Finance.html">
+                    <a href="{% url "main:Finance" %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
@@ -181,49 +143,4 @@
         
         </div>
     </div>
-<!-- Футер -->
-<div class="container">
-
-
-    <footer>
-        <section class="ft-main">
-            <div class="ft-main-item">
-
-                <h2 class="ft-title">Fast links</h2>
-                <ul>
-                    <li><a href="main_adm.html">Главная</a></li>
-                    <li><a href="profile_admin.html">Личный кабинет</a></li>
-                    <li><a href="about_us_adm.html">О нас</a></li>
-                    
-                </ul>
-
-
-                
-            </div>
-            <div class="ft-main-item">
-
-                <h2 class="ft-title">Contacts</h2>
-                <ul>
-                    <li>+7 965 120 22 46</li>
-                    <li>Online.school@yandex.ru</li>
-                    
-                </ul> 
-            </div>
-        </section>
-
-        <section class="ft-legal">
-            <ul class="ft-legal-list">
-        
-                <li>&copy: Яланская Вероника Артуровна Copyright 2026 Online_School</li>
-            </ul>
-
-
-
-        </section>
-    </footer>
-</div>
-
-</body>
-
-
-</html>
+{% endblock cards_of_lessons %}

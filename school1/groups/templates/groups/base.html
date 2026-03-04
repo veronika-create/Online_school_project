@@ -7,15 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online school</title>
-    {% block css %}
-
-    {% endblock css %}
-   
-    
-
+    {% block css %}{% endblock css %}
 </head>
-
-
 <body>
     <div class="main-container">
 <!-- навигационная панель -->
@@ -27,16 +20,16 @@
 
               <button class="nav-btn">&#8776;</button>
                 <div class="nav-list">
-                <a href="main_prep.html">Главная</a>
-                <a href="about_us_prep.html">О нас</a>
-                <a href="Courses.html">Мои курсы</a>
-                <a href="Groups.html">Мои группы</a>
-                <a href="base_of_knowledge.html">База знаний</a>
-                <a href="Tests.html"> Тесты</a>
-                <a href="Lectures.html"> Лекции</a>
-                <a href="connect.html"> Помощь</a>
-                <a href="profile_prep.html">
-                <img src="img/character-avatar-isolated_729149-194801.avif" alt="" width="70"></a>
+                <a href="{% url "groups:index" %}">Главная</a>
+                <a href="{% url "groups:about_us_prep" %}">О нас</a>
+                <a href="{% url "groups:Courses" %}">Мои курсы</a>
+                <a href="{% url "groups:Groups" %}">Мои группы</a>
+                <a href="{% url "groups:base_of_knowledge" %}">База знаний</a>
+                <a href="{% url "groups:Tests" %}"> Тесты</a>
+                <a href="{% url "groups:Lectures" %}"> Лекции</a>
+                <a href="{% url "groups:Help_prep" %}"> Помощь</a>
+                <a href="{% url "groups:profile_prep" %}">
+                <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70"></a>
         </div>
      
        </div> 
@@ -45,13 +38,13 @@
 
         <h1>Онлайн школа</h1>
     <div>
-<div class="first_ph"><img src="img/он.об.png" alt=""></div>
+<div class="first_ph"><img src="{% static "img/он.об.png" %}" alt=""></div>
 <!-- Форма обратной связи -->
-  {% block connect %}{% endblock connect %}
+{% block connect %}{% endblock connect %}
 
-
+{% block Log_in %}{% endblock Log_in %}
 <!-- карточки предметов -->
-     {% block cards_of_lessons %}{% endblock cards_of_lessons %}
+ {% block cards_of_lessons %}{% endblock cards_of_lessons %}
 <!-- Футер -->
 <div class="container">
 
@@ -62,9 +55,9 @@
 
                 <h2 class="ft-title">Fast links</h2>
                 <ul>
-                    <li><a href="main_prep.html">Главная</a></li>
-                    <li><a href="profile_prep.html">Личный кабинет</a></li>
-                    <li><a href="about_us_prep.html">О нас</a></li>
+                    <li><a href="{% url "groups:index" %}">Главная</a></li>
+                    <li><a href="{% url "groups:profile_prep" %}">Личный кабинет</a></li>
+                    <li><a href="{% url "groups:about_us_prep" %}">О нас</a></li>
                     
                 </ul>
 

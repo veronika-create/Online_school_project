@@ -1,19 +1,21 @@
 {% extends "groups/base.html" %}
 {% load static %}
 
+<title>курсы</title>
 {% block css %}
-    <title>Курсы</title>
-    <link rel="stylesheet" href="{% static "styles/base.css" %}">
-    <link rel="stylesheet" href="{% static "styles/Log_in.css" %}">
-    <link rel="stylesheet" href="{% static "styles/Content.css" %}">
-    <link rel="stylesheet" href="{% static "styles/Cards.css" %}">
+<link rel="stylesheet" href="{% static "styles/base.css" %}">
+<link rel="stylesheet" href="{% static "styles/Log_in.css" %}">
+<link rel="stylesheet" href="{% static "styles/Content.css" %}">
+<link rel="stylesheet" href="{% static "styles/Cards.css" %}">
 {% endblock css %}
+   
 {% block cards_of_lessons %}  
     <div>
 
 <div class="lessons">
-    <div class="h2_pr_help">
-        <h2>Курс: Язык PHP. 
+    <div class="h2_pr">
+        <h2> Название курса:PHP <br>
+        <br>
         </h2>
     </div>
     <div class="h3_pr">
@@ -31,10 +33,7 @@
         </P>
     </div>
 
- <div class="img_al2">
-<img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
-</div>
+ 
 
 </div>
-{% endblock cards_of_lessons %}
-<!-- Футер -->
+{% endblock cards_of_lessons %} 
