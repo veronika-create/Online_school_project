@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+from lessons.models import Lessons
+
+
+#admin.site.register(Lessons)
+
+
+@admin.register(Lessons)
+class LessonsAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
