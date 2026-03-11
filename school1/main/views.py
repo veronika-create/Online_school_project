@@ -1,9 +1,14 @@
 
-from django.http import HttpResponse
+
 from django.shortcuts import render
+from main.models import Categories
+
 
 
 def index(request):
+
+
+    
     return render(request, 'main/index.html')
 
 def About_us(request):

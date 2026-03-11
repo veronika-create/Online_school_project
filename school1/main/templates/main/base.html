@@ -1,4 +1,5 @@
 {% load static %}
+{% load main_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +23,6 @@
         
         
         <div class="drop">
-
               <button class="nav-btn">&#8776;</button>
                 <div class="nav-list">
                 <a href="{% url "main:index" %}">Главная</a>
@@ -32,10 +32,10 @@
                 <a href="{% url "main:Marketing" %}">Маркетинг</a>
                 <a href="{% url "main:Analytic" %}">Аналитика</a>
                 <a href="{% url "main:Managing" %}">Управление</a>
-                <a href="{% url "main:Finance" %}">Финансы</a>
+                <a href="{% url "main:Finance" %}">Финансы</a> 
                 <a href="{% url "main:Teachers" %}">Преподаватели</a>
-                <a href="{% url "main:Log_in" %}">
-                <img src="{% static "img/login-icon-vector.jpg" %}" alt="" width="70"></a>
+                <a href="{% url "main:Log_in" %}"> <img src="{% static "img/login-icon-vector.jpg" %}" alt="" width="70"></a>
+           
         </div>
      
        </div>  
