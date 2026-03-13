@@ -3,7 +3,10 @@
 from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
-from school import settings
+
+from school.settings import DEBUG
+#from school import settings
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -13,7 +16,11 @@ urlpatterns = [
     path('prep/', include('groups.urls', namespace='groups')),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if DEBUG:
+    urlpatterns +=[
+        path("__debug__/", include("debug_toolbar.urls")),
+    
+    ]
+    #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
