@@ -1,10 +1,10 @@
-from django import template
+#from django import template
 
-from main.models import Categories
+#from main.models import Categories
 
 
-register = template.Library()
+#register = template.Library()
 
-@register.simple_tag()
-def tag_categories ():
-    return  Categories()
+#@register.simple_tag()
+#def tag_categories ():
+   # return  Categories.objects.all() 

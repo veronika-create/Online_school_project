@@ -1,15 +1,14 @@
-
-
+from django.http import HttpResponse
 from django.shortcuts import render
+
 from main.models import Categories
 
 
 
 def index(request):
-
-
-    
-    return render(request, 'main/index.html')
+    categories = Categories.objects.all()
+   
+    return render(request, 'main/index.html', {"categories": categories})
 
 def About_us(request):
     return render(request, 'main/About_us.html')
