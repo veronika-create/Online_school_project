@@ -1,4 +1,3 @@
-
 {% extends "main/base.html" %}
 {% load static %}
 
@@ -14,7 +13,9 @@
     <p>Изучение дизайна актуально в разных сферах: <b><br><br>культуре; <br><br>экономике; <br><br>экологии; <br><br>образовании.</b> <br><br>Это связано с влиянием дизайна на социокультурные процессы, его ролью в решении задач бизнеса, решением экологических проблем и влиянием на образовательный процесс. </p>
 </div>
 <div class="img_al5">
-<img src="{% static "img/dez11.jpg" %}" alt="" width="70%">
+{% if subject.image %}
+<img src="{{subject.image.url}}" alt="" width="70%">
+{% endif %}
 </div>
 
 <div class="p_pr">

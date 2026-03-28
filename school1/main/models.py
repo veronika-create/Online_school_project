@@ -5,9 +5,8 @@ from django.db import models
 class Categories(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
-    description = models.TextField(blank=True, null=True, verbose_name='Описание')
     image = models.ImageField(upload_to='subjects_images', blank=True, null=True)
-
+    
 
 
     class Meta:
@@ -15,8 +14,8 @@ class Categories(models.Model):
         verbose_name = 'Категорию'
         verbose_name_plural = 'Категории'
 
-    def __str__(self):
-        return f'{self.name}' 
+    def get_absolute_url(self):
+        return f'("subject", kwargs={'subject_slug':self.slug})'
         
 class Subjects(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
@@ -35,6 +34,9 @@ class Subjects(models.Model):
     def __str__(self):
         return f'{self.name}' 
     
+    def get_absolute_url(self):
+        return f'("subject", kwargs={'subject_slug':self.slug})'
+    
 
 class Teachers(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
@@ -44,13 +46,15 @@ class Teachers(models.Model):
 
 
     class Meta:
-        db_table =  'teacher'
-        verbose_name = 'учителю'
+        db_table =  'teachers'
+        verbose_name = 'учителя'
         verbose_name_plural = 'учителя'
 
     def __str__(self):
         return f'{self.name}' 
     
+    def get_absolute_url(self):
+        return f'("teacher", kwargs={'teacher_slug':self.slug})'
 
 class About_us(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
@@ -66,3 +70,6 @@ class About_us(models.Model):
 
     def __str__(self):
         return f'{self.name}' 
+    
+    def get_absolute_url(self):
+        return f'("subject", kwargs={'subject_slug':self.slug})'
