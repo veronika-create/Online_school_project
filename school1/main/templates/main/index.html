@@ -2,6 +2,7 @@
 {% extends "main/base.html" %}
 {% load static %}
 
+
 {% block css %}
 <link rel="stylesheet" href="{% static "styles/base.css" %}"> 
 <link rel="stylesheet" href="{% static "styles/Cards.css" %}">
@@ -53,27 +54,32 @@
 <!-- карточки предметов -->
 
 {% block cards_of_lessons %}
-  {% for category in categories %}    
+    
 
 <div class="container_crd">
 
       
-         <div class="card">
-            {% if category.image %}
-            <a href="{% url "main:Finance" %}"><img src="{{category.image.url}}" alt=""></a>
+<div class="card">
+    
+        {% for subject in subjects %}
+            {% if subject.image %}
+            <a href="{% url "main:Subjects_all" subject.slug %}"><img src="{{subject.image.url}}" alt=""></a>
             {% endif %}
             <div class="info">
-               <a href="{% url "main:Finance" %}">
-                    <div class="text1">{{category.name}}</div>
-                    <a href="{% url "main:Finance" %}">
+                
+               <a href="{% url "main:Subjects_all" subject.slug %}">
+                    <div class="text1">{{subject.name}}</div>
+                    <a href="{% url "main:Subjects_all" subject.slug %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
                     </a>
                 </a>
             </div>
+            
+        {% endfor %}
         </div>
        
-    </div>  
-     {% endfor %}
+</div>  
+    
 {% endblock cards_of_lessons %}

@@ -13,12 +13,15 @@ class Categories(models.Model):
         db_table =  'category'
         verbose_name = 'Категорию'
         verbose_name_plural = 'Категории'
+        
+    def __str__(self):
+        return f'{self.name}' 
 
     def get_absolute_url(self):
-        return f'("subject", kwargs={'subject_slug':self.slug})'
+        return f'("category", kwargs={'category_slug':self.slug})'
         
 class Subjects(models.Model):
-    name = models.CharField(max_length=150, unique=True, verbose_name='Название')
+    name = models.CharField(max_length=150, unique=False, verbose_name='Название')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
     description = models.TextField(blank=True, null=True, verbose_name='Описание')
     image = models.ImageField(upload_to='subjects_images', blank=True, null=True)
@@ -35,7 +38,7 @@ class Subjects(models.Model):
         return f'{self.name}' 
     
     def get_absolute_url(self):
-        return f'("subject", kwargs={'subject_slug':self.slug})'
+        return f'("subjects", kwargs={'subjects_slug':self.slug})'
     
 
 class Teachers(models.Model):
@@ -72,4 +75,4 @@ class About_us(models.Model):
         return f'{self.name}' 
     
     def get_absolute_url(self):
-        return f'("subject", kwargs={'subject_slug':self.slug})'
+        return f'("about_us", kwargs={'about_us_slug':self.slug})'

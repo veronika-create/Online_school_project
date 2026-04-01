@@ -3,7 +3,8 @@
 {% load static %}
 
 
-    <title>Аналитика</title>
+
+    <title>Предметы</title>
     {% block css %}
     <link rel="stylesheet" href="{% static "styles/base.css" %}">
     <link rel="stylesheet" href="{% static "styles/Cards.css" %}">
@@ -11,20 +12,21 @@
     {% endblock css %}
    
 
+
 {% block cards_of_lessons %}
-<div class="p_pr">
-    <p>Станьте востребованным аналитиком данных за 8 месяцев и зарабатывайте от 130 000 ₽ в месяц <br><br>•  Найдёте работу, или вернём деньги <br><br>•  Обучение на реальных бизнес-кейсах и в симуляторах <b>SQL, Python, Power BI, Excel, Google Sheets</b><br><br>•  Актуальная программа <br><br>•  Научитесь применять нейросети для автоматизации рутинных задач <br><br>•  Документ об образовании государственного образца и диплом от Eduson</p>
-</div>
+
+{% for subject in subjects %}
 <div class="img_al3">
-<img src="{{subject.image.url}}" alt="" >
+<img src="{{subject.image.url}}" alt=""  width = "490">
 </div>
 
 <div class="p_pr">
-    <p>{{subject.description|linebreaks}}</p>
+    <p>{{subject.description|linebreaksbr}}</p>
 </div>
-<div class="img_al2">
-<img src="{% static "img/Anal1.png" %}" alt="" srcset=""></div>
+
+{% endfor %}
 {% endblock cards_of_lessons %}
+
 <!-- Форма обратной связи -->
   {% block connect %}
  <div class="container_sv">

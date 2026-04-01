@@ -14,12 +14,12 @@ def tag_categories ():
 
 @register.simple_tag()
 def tag_subjects ():
-    return  Subjects().objects.all() 
+    return  Subjects.objects.all() 
 
 @register.simple_tag()
 def tag_teachers ():
-    return  Teachers().objects.all() 
+    return  Teachers.objects.all() 
 
 @register.simple_tag()
 def tag_About_us ():
-    return  About_us().objects.all() 
+    return  About_us.objects.all() 
