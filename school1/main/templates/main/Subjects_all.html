@@ -5,6 +5,7 @@
 
 
     <title>Предметы</title>
+
     {% block css %}
     <link rel="stylesheet" href="{% static "styles/base.css" %}">
     <link rel="stylesheet" href="{% static "styles/Cards.css" %}">
@@ -14,23 +15,25 @@
 
 
 {% block cards_of_lessons %}
-
-    {% for subject in subjects %}
-    <div class="img_al3">
-        
+{% for subject in subjects %}
+    
+<div class="img_al3">
+    {% if subject.image %}
         <img src="{{subject.image.url}}" alt=""  width = "490">
-        
-    </div>
+    {% endif %}
+</div>
 
-    <div class="p_pr">
-        
+<div class="p_pr">
+
+    {% if subject.description %}
         <p>{{subject.description|linebreaksbr}}</p>
-       
-    </div>
-    {% endfor %}
-
+    {% endif %}
+   
+</div>
+        
+{% endfor %} 
 {% endblock cards_of_lessons %}
-
+ 
 <!-- Форма обратной связи -->
   {% block connect %}
  <div class="container_sv">

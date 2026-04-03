@@ -56,91 +56,33 @@
 </div>
 {% endblock connect %}
 <!-- карточки предметов -->
- {% block cards_of_lessons %}
+{% block cards_of_lessons %}
+    
+
 <div class="container_crd">
-        <div class="card">
-            <a href="{% url "main:Analytic" %}"><img src="{% static "img/Аналитика.webp" %}" alt=""></a>
+
+      
+<div class="card">
+            {% for lesson in lessons %}
+            {% if lesson.image %}
+            <a href="{% url "lessons:Lessons_all" lesson.slug %}"><img src="{{lesson.image.url}}" alt="" width="90%"></a>
+            {% endif %}
             <div class="info">
-                <a href="{% url "main:Analytic" %}">
-                    <div class="text1">Аналитика</div>
-                    <a href="{% url "main:Analytic" %}">
+                
+               <a href="{% url "lessons:Lessons_all" lesson.slug %}">
+                    <div class="text1">{{lesson.name}}</div>
+                    <a href="{% url "lessons:Lessons_all" lesson.slug %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>
                     </a>
                 </a>
             </div>
+            
+        {% endfor %}
         </div>
-        
-        <div class="card">
-            <a href="{% url "main:Design" %}"><img src="{% static "img/Дизайн.webp" %}" alt=""></a>
-             <div class="info">
-             <a href="{% url "main:Design" %}">
-                    <div class="text1">Дизайн</div>
-                    <a href="{% url "main:Design" %}">
-                        <div class="button1">
-                        <input type="button" value="Хочу узнать больше">
-                        </div>
-                    </a>
-                </a>
-            </div>
-        
-        </div>
-        <div class="card">
-            <a href="{% url "main:Programming" %}"><img src="{% static "img/Прог.jpg" %}" alt=""></a>
-             <div class="info">
-                 <a href="{% url "main:Programming" %}">
-                    <div class="text1">Программирование</div>
-                    <a href="{% url "main:Programming" %}">
-                        <div class="bututon1">
-                        <input type="button" value="Хочу узнать больше">
-                        </div>
-                    </a>
-                </a>
-            </div>
-        
-        </div>
-        <div class="card">
-            <a href="{% url "main:Marketing" %}"><img src="{% static "img/Маркетинг.webp" %}" alt=""></a>
-             <div class="info">
-              <a href="{% url "main:Marketing" %}">
-                    <div class="text1">Маркетинг</div>
-                    <a href="{% url "main:Marketing" %}">
-                        <div class="button1">
-                        <input type="button" value="Хочу узнать больше">
-                        </div>
-                    </a>
-                </a>
-            </div>
-        
-        </div>
-        <div class="card">
-            <a href="{% url "main:Managing" %}"><img src="{% static "img/Управление.jpg" %}" alt=""></a>
-             <div class="info">
-                <a href=""{% url "main:Managing" %}">
-                    <div class="text1">Управление</div>
-                    <a href=""{% url "main:Managing" %}">
-                        <div class="button1">
-                        <input type="button" value="Хочу узнать больше">
-                        </div>
-                    </a>
-                </a>
-            </div>
-        
-        </div>
-        <div class="card">
-            <a href="{% url "main:Finance" %}"><img src="{% static "img/Финансы.webp" %}" alt=""></a>
-             <div class="info">
-               <a href="{% url "main:Finance" %}">
-                    <div class="text1">Экономика</div>
-                    <a href="{% url "main:Finance" %}">
-                        <div class="button1">
-                        <input type="button" value="Хочу узнать больше">
-                        </div>
-                    </a>
-                </a>
-            </div>
-        
-        </div>
-    </div>
+       
+</div>  
+    
 {% endblock cards_of_lessons %}
+

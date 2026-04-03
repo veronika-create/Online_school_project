@@ -1,33 +1,34 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
+from django.views.generic import DetailView
 
+from lessons.models import Lessons
 
 def index(request):
-    return render(request, 'lessons/index.html')
+    lessons = Lessons.objects.all()
+    return render(request, 'lessons/index.html', {"lessons": lessons})
 
 def about_us_std(request):
     return render(request, 'lessons/about_us_std.html')
 
-def Cookie(request):
-    return render(request, 'lessons/Cookie.html')
+class LessonsDetailView (DetailView):
+    model=Lessons
+    template_name='lessons/Lessons_all.html'
+    slug_url_kwarg= 'lessons_slug'
+    context_object_name = 'lessons'
 
-def History(request):
-    return render(request, 'lessons/History.html')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        return context
+    
 
-def Massyvy(request):
-    return render(request, 'lessons/Massyvy.html')
-
-def Methods(request):
-    return render(request, 'lessons/Methods.html')
-
-def MySQL_in_PHP(request):
-    return render(request, 'lessons/MySQL_in_PHP.html')
-
-def Obgects(request):
-    return render(request, 'lessons/Obgects.html')
+    def get_object (self, queryset=None):
+        return get_object_or_404 (Lessons, slug=self.kwargs[self.slug_url_kwarg])
+    
+def Log_in(request):
+    return render(request, 'lessons/Log_in.html')
 
 def Profile_std(request):
     return render(request, 'lessons/Profile_std.html')
-
-def Syntacsis(request):
-    return render(request, 'lessons/Syntacsis.html')
