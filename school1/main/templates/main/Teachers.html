@@ -3,65 +3,31 @@
 
 {% load static %}
 
-
-    <title>Учителя</title>
-    {% block css %}
-    <link rel="stylesheet" href="{% static "styles/base.css" %}">
-    <link rel="stylesheet" href="{% static "styles/Cards.css" %}">
-    <link rel="stylesheet" href="{% static "styles/Content.css" %}">
-    {% endblock css %}
+<title>Учителя</title>
+{% block css %}
+<link rel="stylesheet" href="{% static "styles/base.css" %}">
+<link rel="stylesheet" href="{% static "styles/Cards.css" %}">
+<link rel="stylesheet" href="{% static "styles/Content.css" %}">
+{% endblock css %}
     
- {% block cards_of_lessons %}
+{% block cards_of_lessons %}
+{% for teacher in teachers %}
 
-        <div class="p_pr">
-            <p>Образовательная платформа, на которой можно с нуля освоить востребованную профессию, а также получить знания и навыки для перехода на новый уровень в карьере.
-            </p>
-        </div>
-       
-    <div>
 
-    <div class="container_crd">
-        <div class="card">
-            <div class="img_3"><img src="{% static "img/prep1.webp" %}" alt="" >
-            </div>
-            
-            <div class="p_pr">
-                
-                <p> <b><center>Даниил Пилипенко</center></b><br><br>Основал центр подбора IT-специалистов <br>с базой в 120 000 человек. Консультирует разработчиков по профессиональному росту <br>и развитию, занимается карьерным коучингом.
-                </p>
-    
-             </div>
-             <div class="img_3">
-                <img src="{% static "img/prep2.webp" %}" alt="" >
-            </div>
-            
-            <div class="p_pr">
-                
-                <p> <b><center>Михаил Овчинников</center></b> <br><br>Докладчик крупнейших IT-конференций России. <br><br>Более 15 лет опыта в IT — от стартапов до крупных компаний.
-                </p>
-             </div>
-             </div>
-             <div class="img_4">
-                <img src="{% static "img/prep5.webp" %}" alt="" width="800px" >
-            </div>
-            <div class="p_pr">
-                <p> <b><center>Сергей Камянецкий</center></b> <br><br>Сертифицированный Microsoft-разработчик. <br><br> 8 лет в разработке на C#. <br><br>Победитель Microsoft Uniapps Challenge.
-                </p>
-             </div>
-             <div class="img_5"><img src="{% static "img/prep6.webp" %}" alt="" width="800px" >
-            </div>
-            <div class="p_pr">
-                <p> <b><center>Вадим Шандринов</center></b> <br><br>Python-разработчик с опытом более 16 лет.
-                </p>
-             </div>
-            <div class="img_6"><img src="{% static "img/prep3.avif" %}" alt="" width="800px">
-            </div>
-            <div class="p_pr">
-                <p> <b><center>Дмитрий Коробченко</center></b> <br><br>Руководитель команды разработки в ivi.ru.
-                </p>
-             </div>
-        </div>
-{% endblock cards_of_lessons %}
+<div class="img_pr">
+    {% if teacher.image %}
+    <img src="{{teacher.image.url}}" alt="" width="90%">
+    {% endif %}
+</div>
+<div class="h3_pr">
+    <h4>{{teacher.name}}</h4>
+</div>
+<div class="p_pr">
+    <p> {{teacher.description|linebreaksbr}}</p>
+</div>
+
+{% endfor %} 
+{% endblock cards_of_lessons %}   
 
  {% block connect %}
 <!-- Форма обратной связи -->

@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
-from django.views.generic import ListView
+from django.views.generic import DetailView
 
 from main.models import Categories
 from main.models import Subjects
@@ -10,20 +10,44 @@ from main.models import About_us
 
 def index(request):
     categories = Categories.objects.all()
-   
     return render(request, 'main/index.html', {"categories": categories})
 
-def About_us (request):
-    return render(request, 'main/About_us.html')
 
-def Subjects_all (request, subjects_slug):
-    subjects = Subjects.objects.get(slug=subjects_slug)
-   
-    context={
-    "subjects": subjects,
-    #"category_selected": subjects.category_slug,
-    }
-    return render(request, 'main/Subjects_all.html', context = context, )
+def About_us (request):
+    return render(request, 'main/About_us.html' )
+
+def Teachers (request):
+    return render(request, 'main/Teachers.html')
+
+class SubjectsDetailView (DetailView):
+    model=Subjects
+    template_name='main/Subjects_all.html'
+    slug_url_kwarg= 'subjects_slug'
+    context_object_name = 'subjects'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        return context
+    
+
+    def get_object (self, queryset=None):
+        return get_object_or_404 (Subjects, slug=self.kwargs[self.slug_url_kwarg])
+    
+def Log_in(request):
+    return render(request, 'main/Log_in.html')
+
+
+    
+    
+    
+    
+    
+    #def Subjects_all (request, subjects_slug):
+        #subjects = get_object_or_404 (Subjects, slug=subjects_slug)
+        #return render(request, 'main/Subjects_all.html', {"subjects": subjects})
+    
+    
     #subjects = Subjects.objects.get(slug=subjects_slug)
 
 
@@ -35,11 +59,7 @@ def Subjects_all (request, subjects_slug):
     #slug= "None"
     #return render(request, 'main/Subjects_all.html', {"categories": categories})
     #,
-def Log_in(request):
-    return render(request, 'main/Log_in.html')
 
-def Teachers (request):
-    return render(request, 'main/Teachers.html')
 
 #def Categories (request, categories_slug):
     #categories= get_object_or_404 (Categories, slug=category_slug)

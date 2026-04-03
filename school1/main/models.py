@@ -40,6 +40,9 @@ class Subjects(models.Model):
     def get_absolute_url(self):
         return f'("subjects", kwargs={'subjects_slug':self.slug})'
     
+    def display_description(self):
+        return f'{self.description}'
+    
 
 class Teachers(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
