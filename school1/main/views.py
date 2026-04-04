@@ -21,9 +21,10 @@ def Teachers (request):
 
 class SubjectsDetailView (DetailView):
     model=Subjects
-    template_name='main/Subjects_all.html'
+    template_name='main/subjects_all.html'
     slug_url_kwarg= 'subjects_slug'
     context_object_name = 'subjects'
+    slug_field = 'slug'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -34,8 +35,8 @@ class SubjectsDetailView (DetailView):
     def get_object (self, queryset=None):
         return get_object_or_404 (Subjects, slug=self.kwargs[self.slug_url_kwarg])
     
-def Log_in(request):
-    return render(request, 'main/Log_in.html')
+def login(request):
+    return render(request, 'main/login.html')
 
 
     

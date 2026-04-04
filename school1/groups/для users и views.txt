@@ -1,0 +1,46 @@
+def index(request):
+    return render(request, 'users/index.html')
+
+def about_us_adm(request):
+    return render(request, 'users/about_us_adm.html')
+
+def Help_admin(request):
+    return render(request, 'users/Help_admin.html')
+
+def Ivanov(request):
+    return render(request, 'users/Ivanov.html')
+
+def list_of_students(request):
+    return render(request, 'users/list_of_students.html')
+
+def list_of_teachers_for_groups(request):
+    return render(request, 'users/list_of_teachers_for_groups.html')
+
+def List_of_teachers(request):
+    return render(request, 'users/List_of_teachers.html')
+
+def Massages(request):
+    return render(request, 'users/Massages.html')
+
+def Pilipenko(request):
+    return render(request, 'users/Pilipenko.html')
+
+def profile_admin(request):
+    return render(request, 'users/profile_admin.html')
+
+def registed_users(request):
+    return render(request, 'users/registed_users.html')
+
+
+
+
+path('about_us_adm/', views.about_us_adm, name = 'about_us_adm'),
+    path('Help_admin/', views.Help_admin, name = 'Help_admin'),
+    path('Ivanov/', views.Ivanov, name = 'Ivanov'),
+    path('list_of_students/', views.list_of_students, name = 'list_of_students'),
+    path('list_of_teachers_for_groups/', views.list_of_teachers_for_groups, name = 'list_of_teachers_for_groups'),
+    path('Massages/', views.Massages, name = 'Massages'),
+    path('List_of_teachers/', views.List_of_teachers, name = 'List_of_teachers'),
+    path('Pilipenko/', views.Pilipenko, name = 'Pilipenko'),
+    path('profile_admin/', views.profile_admin, name = 'profile_admin'),
+    path('registed_users/', views.registed_users, name = 'registed_users'),

@@ -12,9 +12,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls', namespace='main')),
     path('Lessons_all/', include('lessons.urls', namespace='lessons')),
-    path('adm/', include('users.urls', namespace='users')),
+    path('user/', include('users.urls', namespace='user')),
     path('prep/', include('groups.urls', namespace='groups')),
-    path('Subjects_all/', include('main.urls', namespace='Subjects_all')),
+    path('subjects_all/', include('main.urls', namespace='subjects_all')),
 ]
 
 if settings.DEBUG:

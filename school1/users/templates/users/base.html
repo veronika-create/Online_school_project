@@ -28,7 +28,7 @@
                 <a href="{% url "users:list_of_teachers_for_groups" %}">Группы</a>
                 <a href="{% url "users:list_of_students" %}">Ученики</a>
                 <a href="{% url "admin:index" %}">Админ панель</a>
-                <a href="{% url "users:profile_admin" %}">
+                <a href="{% url "users:profile" %}">
                 <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70"></a>
         </div>
      
@@ -55,8 +55,7 @@
                 <h2 class="ft-title">Fast links</h2>
                 <ul>
                     <li><a href="{% url "users:index" %}">Главная</a></li>
-                    <li><a href="{% url "users:profile_admin" %}">Личный кабинет</a></li>
-                    <li><a href="{% url "users:about_us_adm" %}">О нас</a></li>
+                    <li><a href="{% url "users:profile" %}">Личный кабинет</a></li>
                     
                 </ul>
 
