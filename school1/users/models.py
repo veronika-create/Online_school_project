@@ -1,5 +1,17 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
+class User(AbstractUser):
+    image = models.ImageField(upload_to='users_images', blank=True, null=True, verbose_name='Аватар')
+
+    class Meta:
+        db_table =  'user'
+        verbose_name = 'Пользователя'
+        verbose_name_plural = 'Пользователи'
+        swappable = 'AUTH_USER_MODEL'
+        
+    def __str__(self):
+        return f'{self.username}' 
 
 class Registed_users(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
@@ -18,7 +30,7 @@ class Registed_users(models.Model):
 class List_of_teachers(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
-    category = models.ForeignKey(to=Registed_users, on_delete=models.CASCADE, verbose_name='зарегистрированные пользователи')
+   
     
     
     class Meta:
@@ -48,7 +60,7 @@ class List_of_teachers_for_goups (models.Model):
 class List_of_students (models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
-    category = models.ForeignKey(to= Registed_users , on_delete=models.CASCADE, verbose_name='зарегистрированный пользователь')
+    
     
     
     class Meta:

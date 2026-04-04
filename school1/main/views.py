@@ -38,7 +38,27 @@ class SubjectsDetailView (DetailView):
 def login(request):
     return render(request, 'main/login.html')
 
+#def login(request):
+    #context= {
+        #'title': 'Home - Аторизация'
+         # }
+    #return render(request, 'main/login.html', context=context)
 
+def registration (request):
+    context= {
+        'title': 'Home - Регистрация'
+          }
+    return render(request, 'main/registration.html', context=context)
+
+def profile (request):
+    context= {
+        'title': 'Home - Кабинет'
+          }
+    
+    return render(request, 'main/profile.html', context=context)
+
+def logout (request):
+   ...
     
     
     

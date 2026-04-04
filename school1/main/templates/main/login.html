@@ -1,7 +1,7 @@
-{% extends "users/base.html" %}
+{% extends "main/base.html" %}
 {% load static %}
 
-{% block title %}<title>Войти</title>{% endblock title %}
+{% block title %}<title>Вход</title>{% endblock title %}
     {% block css %}
     <link rel="stylesheet" href="{% static "styles/base.css" %}">
     <link rel="stylesheet" href="{% static "styles/Log_in.css" %}">
@@ -36,6 +36,9 @@
                         <button type="submin" class="btn bnt-dart btn-block">Войти</button>
                     </div>
                 </form>
+                <div>
+                    <a href="{% url "main:registration" %}">Создать аккаунт</a>
+                </div>
         </div>
     </div>
 </div>
