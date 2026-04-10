@@ -1,5 +1,5 @@
 
-{% extends "users/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block title %}<title>Профиль</title>{% endblock title %}
@@ -13,45 +13,37 @@
 <div class="container_log">
     <div class="content_log">
 
-      
-        <div class="img">
-            <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70%">
-            <input type="file" class:"form-control" id="avatar" accept="image/">
-        </div> 
-            <form action="#">
+            <form action="{% url "users:profile" %}"method="post">
+                {% csrf_foken %}
                     <div class="input-box_reg">
                         <div class="text">
-                        <input type="text" class:"form-control" id="name" placeholder="Введите ФИО" required>
+                        <input type="text" class:"form-control" id="id_username" placeholder="Введите логин" 
+                        value=""{{form.username.value}}
+                        required>
                         </div>
                         <div class="name">
-                        <label for="name" class="form-lable">ФИО:*</label>
+                        <label for="id_username" class="form-lable">Login:</label>
                         </div>
+                        {% if form.username.errors %}
+                        <div class="alert alert-danger alert-dismissible fade show">
+                        {{form.username.errors}}
+                        </div>
+                        {% endif %}
                     </div>
                     <div class="input-box_reg">
                         <div class="text">
-                        <input type="text" class:"form-control" id="username" placeholder="Введите логин" required>
+                        <input type="email" class:"form-control" id="id_email" placeholder="Введите Email *example@yande.ru" 
+                        value=""{{form.email.value}}
+                        required>
                         </div>
                         <div class="name">
-                        <label for="username" class="form-lable">Login:*</label>
+                        <label for="id_email" class="form-lable">Email:</label>
                         </div>
-                    </div>
-                    <div class="input-box_reg">
-                        <div class="text">
-                        <div class="text">
-                        <input type="password" class:"form-control" id="password1" placeholder="Введите пароль" required>
+                         {% if form.email.errors %}
+                        <div class="alert alert-danger alert-dismissible fade show">
+                        {{form.email.errors}}
                         </div>
-                        <div class="name1">
-                        <label for="password1" class="form-lable">Пароль:*</label>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="input-box_reg">
-                        <div class="text">
-                        <input type="Email" class:"form-control" id="Email" placeholder="Введите Email *example@yande.ru" required>
-                        </div>
-                        <div class="name">
-                        <label for="Email" class="form-lable">Email:*</label>
-                        </div>
+                        {% endif %}
                     </div>
                     <div class="button1">
                         <button type="submin" class="btn bnt-dart btn-block">Сохранить</button>

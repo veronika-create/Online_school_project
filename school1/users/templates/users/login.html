@@ -1,4 +1,4 @@
-{% extends "users/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block title %}<title>Вход</title>{% endblock title %}
@@ -15,6 +15,7 @@
       <div class="topic-text_reg">Авторизация</div>
                 <form action="{% url "user:login" %}" method="post">
                     {% csrf_token %}
+                    
                     <div class="input-box_reg">
                         <div class="text">
                         <input type="text" class:"form-control" name="username" id="id_username" placeholder="Введите логин" required>
