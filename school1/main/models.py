@@ -20,7 +20,7 @@ class Categories(models.Model):
     def get_absolute_url(self):
         return f'("category", kwargs={'category_slug':self.slug})'
         
-class Subjects(models.Model):
+class Subjects (models.Model):
     name = models.CharField(max_length=150, unique=False, verbose_name='Название')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
     description = models.TextField(blank=True, null=True, verbose_name='Описание')

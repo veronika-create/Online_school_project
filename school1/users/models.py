@@ -1,31 +1,34 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Permission
 
 class User(AbstractUser):
     image = models.ImageField(upload_to='users_images', blank=True, null=True, verbose_name='Аватар')
+    groups= models.ManyToManyField(Permission, verbose_name='user permissions', blank=True, help_text='Specific Permissions for this user.', related_name='brabrabra')
+    user_permissions = models.ManyToManyField(Permission, verbose_name='user permissions', blank=True, help_text='Specific Permissions for this user.', related_name='abracadabra')
+
 
     class Meta:
-        db_table =  'user'
+        db_table =  'users'
         verbose_name = 'Пользователя'
         verbose_name_plural = 'Пользователи'
-        swappable = 'AUTH_USER_MODEL'
+       
         
     def __str__(self):
         return f'{self.username}' 
 
-class Registed_users(models.Model):
-    name = models.CharField(max_length=150, unique=True, verbose_name='Название')
-    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
+#class Registed_users(models.Model):
+    #name = models.CharField(max_length=150, unique=True, verbose_name='Название')
+    #slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, #verbose_name='URL')
 
 
 
-    class Meta:
-        db_table =  'registed_users'
-        verbose_name = 'зарегистрированный пользователь'
-        verbose_name_plural = 'зарегистрированные пользователи'
+    #class Meta:
+        #db_table =  'registed_users'
+         #verbose_name = 'зарегистрированный пользователь'
+         #verbose_name_plural = 'зарегистрированные пользователи'
 
-    def __str__(self):
-        return f'{self.name}' 
+     #def __str__(self):
+         #return f'{self.name}' 
         
 class List_of_teachers(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')

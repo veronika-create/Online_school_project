@@ -124,11 +124,16 @@ class Choice (models.Model):
         return f'{self.name}' 
     
 class Answer(models.Model):
-    
+    name = models.CharField(max_length=150, unique=True, verbose_name='Название')
     #user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING)
     question = models.ForeignKey(Questions, on_delete=models.DO_NOTHING)
     choice = models.ForeignKey(Choice, on_delete=models.DO_NOTHING)
     created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table =  'answer'
+        verbose_name = 'ответ'
+        verbose_name_plural = 'ответы'
 
     def __str__(self):
         return f'{self.choice}' 

@@ -9,3 +9,4 @@ from lessons.models import Lessons
 @admin.register(Lessons)
 class LessonsAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
+

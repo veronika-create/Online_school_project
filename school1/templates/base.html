@@ -36,7 +36,7 @@
                 {% for subject in subjects %}
                 <a href="{% url "main:subjects_all" subject.slug %}">{{subject.name}}</a>
                 {% endfor %} 
-                <a href="{% url "user:login" %}"> Войти </a>
+                <a href="{% url "users:login" %}"> Войти </a>
 
                 
 
@@ -48,6 +48,7 @@
                 <a href="{% url "users:registed_users" %}">Пользователи</a><br><br>
                 <a href="{% url "users:list_of_teachers_for_groups" %}">Группы</a>
                 <a href="{% url "users:list_of_students" %}">Ученики</a>
+                
                 <a href="{% url "admin:index" %}">Админ панель</a>
                 <a href="{% url "users:profile" %}">
                 <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70"></a>
@@ -62,7 +63,7 @@
                 <a href="{% url "groups:Tests" %}"> Тесты</a>
                 <a href="{% url "groups:Lectures" %}"> Лекции</a>
                 <a href="{% url "groups:Help_prep" %}"> Помощь</a>
-                <a href="{% url "groups:profile_prep" %}">
+                <a href="{% url "users:profile" %}">
                 <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70"></a>
                 {% endif %}
 
@@ -71,6 +72,7 @@
                 {% for lesson in lessons %}
                 <a href="{% url "lessons:lessons_all" lesson.slug %}">{{lesson.name}}</a>
                 {% endfor %}
+                <a href="{% url "users:logout" %}">Выход</a>
                 <a href="{% url "users:profile" %}">
                 <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70"></a>
                 {% endif %} 
