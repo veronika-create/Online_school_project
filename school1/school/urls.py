@@ -11,10 +11,12 @@ from school import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls', namespace='main')),
-    path('Lessons_all/', include('lessons.urls', namespace='lessons')),
+    path('lessons_all/', include('lessons.urls', namespace='lessons')),
     path('user/', include('users.urls', namespace='user')),
     path('prep/', include('groups.urls', namespace='groups')),
     path('subjects_all/', include('main.urls', namespace='subjects_all')),
+    
+    path('accounts/', include('users.urls', namespace='accounts')),
 ]
 
 if settings.DEBUG:

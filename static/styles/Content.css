@@ -1,0 +1,131 @@
+.img_pr{
+    margin-left: 10%;
+}
+.img_pr2{
+    margin-left: 15%;
+    margin-bottom: 15%;
+}
+.h2_pr{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(189, 160, 180);
+    font-size: 50px;
+    letter-spacing: 5px;
+    word-spacing: 5px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 40px;
+    width: 800%;
+}
+.h2_pr_help{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(189, 160, 180);
+    font-size: 50px;
+    letter-spacing: 5px;
+    word-spacing: 20%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 40px;
+   
+
+}
+.h3_pr{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    font-size: 50px;
+    letter-spacing: 5px;
+    word-spacing: 5px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 40px;
+}
+.p_pr,
+.p1{
+    text-align:justify;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 253, 254);
+    font-size: 30px;
+    letter-spacing: 0px;
+    word-spacing: 5px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 40px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px 0rgba(34, 60, 80, 0.2);
+  
+
+}
+.p1 a {
+    text-decoration: none;
+}
+
+.img_al{
+    margin-left: 60px;
+}
+.img_al1{
+    margin-left: 20%;
+}
+
+
+.img_al2{
+    margin-left: 25%;
+    margin-bottom: 5%;
+    margin-top: 10%;
+   
+}
+.img_les2 {
+    margin-left: 20%;
+    margin-bottom: 5%;
+}
+.img_hi2{
+    margin-left: 20%;
+}
+.img_al3{
+    margin-left: 35%;
+   
+}
+
+.img_al5{
+    margin-left: 23%;
+}
+.img_les5{
+    margin-left: 8%;
+    margin-bottom: 10%;
+}
+.img_his5{
+    margin-left: 20%;
+    margin-bottom: 10%;
+}
+.img_mas5{
+    margin-left: 20%;
+    margin-bottom: 10%;
+}
+.img_sy2{
+    margin-left: 20%;
+    margin-bottom: 10%;
+}
+.img_meth2{
+    margin-left: 27%;
+    margin-bottom: 10%;
+}
+
+    
+@media(max-width: 800px){
+    .p_pr{
+        font-size: 160%;
+    }
+    .h2_pr{
+        width: 100%;
+
+    }
+}
+ 
+@media(max-width: 600px){
+    .p_pr{
+        font-size: 140%;
+    }
+}

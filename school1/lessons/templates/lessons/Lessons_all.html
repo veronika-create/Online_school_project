@@ -13,20 +13,15 @@
  
 
 {% block cards_of_lessons %}
+
 {% for lesson in lessons %}
     
-<div class="img_al3">
-    {% if lesson.image %}
+<div class="img_al3">  
         <img src="{{lesson.image.url}}" alt=""  width = "490">
-    {% endif %}
 </div>
 
-<div class="p_pr">
-
-    {% if lesson.description %}
-        <p>{{lesson.description|linebreaksbr}}</p>
-    {% endif %}
-   
+<div class="p_pr"> 
+        <p>{{lesson.description|linebreaksbr}}</p> 
 </div>
 {% endfor %} 
 {% endblock cards_of_lessons %}

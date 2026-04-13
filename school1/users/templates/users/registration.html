@@ -47,12 +47,12 @@
                         </div>
                         {% endif %}
                     </div>
-                    <div class="input-box_reg">
+                        <div class="input-box_reg">
                         <div class="text">
                         <div class="text">
                         <input type="password" class:"form-control" id="id_password1" 
-                        value="{% if form.username.value %} {{form.password1.value}} {% endif %}"
-                        name="password1" placeholder="Введите пароль" required>
+                        value="{% if form.password1.value %} {{form.password1.value}}{% endif %}"
+                        name="password1" placeholder="Подтвердите пароль" required>
                         </div>
                         <div class="name1">
                         <label for="id_password1" class="form-lable">Пароль:</label>
@@ -68,7 +68,7 @@
                         <div class="text">
                         <div class="text">
                         <input type="password" class:"form-control" id="id_password2" 
-                        value="{% if form.username.value %} {{form.password2.value}}{% endif %}"
+                        value="{% if form.password2.value %} {{form.password2.value}}{% endif %}"
                         name="password2" placeholder="Подтвердите пароль" required>
                         </div>
                         <div class="name1">
@@ -81,15 +81,17 @@
                         </div>
                         {% endif %}
                     </div>
-                    <div class="button1">
-                        <button type="submin" class="btn bnt-dart btn-block">Вход</button>
+                    <div class="log_and_reg">
+                    <div class="button">
+                        <a href="{% url "lessons:index" %}"><input type="button" value="Отправить"></a>
+                    </div>
                     </div>
                 </form>
                 
         </div>
     </div>
 </div>
- 
+   
 <div class="img_al2">
 <img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
 </div>

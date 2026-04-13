@@ -62,11 +62,22 @@
     font-size:35px;
     font-weight: 600;
     color: #3e2093;
-    margin-top: -10%;
+    margin-top: -5%;
     margin-left: 10%;
 }
+
+.log_and_reg{
+    margin-left: 30%;
+    
+} 
+
+.log_and_reg2{
+    margin-left: 47%;
+    margin-top: 5%;
+} 
+
 .text{
-    font-size:40px;
+    font-size: 40 px;
     font-weight: 600;
 }
 .text1{

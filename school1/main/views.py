@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
+from django.template import context
+
 from django.views.generic import DetailView
 
 from main.models import Categories
@@ -19,21 +21,33 @@ def About_us (request):
 def Teachers (request):
     return render(request, 'main/Teachers.html')
 
-class SubjectsDetailView (DetailView):
-    model=Subjects
-    template_name='main/subjects_all.html'
-    slug_url_kwarg= 'subjects_slug'
-    context_object_name = 'subjects'
-    slug_field = 'slug'
+def subjects_all (request, subjects_slug):
+    subject=Subjects.objects.get(slug=subjects_slug)
+    context={
+        'subject': subject
+    }
+    return render(request, 'main/subjects_all.html', context=context)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+#subject = get_object_or_404 (Subjects, slug=subjects_slug)
+ #context ={
+        #'image': 'image',
+        #'description': 'description',
+        #'category_selected': subjects.subjects_slug
+#class SubjectsDetailView (generic.DetailView):
+     #model=Subjects
+     #template_name='main/subjects_all.html'
+     #slug_url_kwarg= 'subjects_slug'
+     #context_object_name = 'subjects'
+     #slug_field = 'slug'
+
+     #def get_context_data(self, **kwargs):
+         #context = super().get_context_data(**kwargs)
         
-        return context
+         #return context
     
 
-    def get_object (self, queryset=None):
-        return get_object_or_404 (Subjects, slug=self.kwargs[self.slug_url_kwarg])
+    #def get_object (self, queryset=None):
+         #return get_object_or_404 (Subjects, slug=self.kwargs[self.slug_url_kwarg])
     
 def login(request):
     return render(request, 'main/login.html')

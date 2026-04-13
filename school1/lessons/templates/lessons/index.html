@@ -65,13 +65,13 @@
 <div class="card">
             {% for lesson in lessons %}
             {% if lesson.image %}
-            <a href="{% url "lessons:Lessons_all" lesson.slug %}"><img src="{{lesson.image.url}}" alt="" width="90%"></a>
+            <a href="{% url "lessons:lessons_all" lesson.slug %}"><img src="{{lesson.image.url}}" alt="" width="90%"></a>
             {% endif %}
             <div class="info">
                 
-               <a href="{% url "lessons:Lessons_all" lesson.slug %}">
+               <a href="{% url "lessons:lessons_all" lesson.slug %}">
                     <div class="text1">{{lesson.name}}</div>
-                    <a href="{% url "lessons:Lessons_all" lesson.slug %}">
+                    <a href="{% url "lessons:lessons_all" lesson.slug %}">
                         <div class="button1">
                         <input type="button" value="Хочу узнать больше">
                         </div>

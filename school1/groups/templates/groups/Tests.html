@@ -9,20 +9,41 @@
  {% endblock css %}
 {% block cards_of_lessons %}
     <div>
+ {% block log_in %}
+<div class="container_log">
+    <div class="content_log">
+        <div class="img">
+            <img src="{% static "img/elephpant-running-78x48.gif" %}" alt="" width="70%">
+        </div> 
+        {%for q in page_obj%}
+            <form action="{%url 'polls:answer' test.id%}" method="POST">
+            {%csrf_token%}
+            <h1>{{q.question_text}}</h1>
+            {%for c in q.choice_set.all%}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ c.choice_text }}">
+            <label for="choice{{ forloop.counter }}">{{ c.choice_text }}</label><br>
+            {%endfor%}
+            <button type="submit">Ответить</button>
 
-<div class="lessons">
-   
-    <div class="h3_pr">
-        <h3>Курс по PHP <br>
-        Тесты</h3>
+            </form>
+            {%endfor%}
+        <span class="step-links">
+            
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"></a>
+        {% endif %}
+        <span class="current">
+        Вопрос {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+        </span>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">след</a>
+        {% endif %}
+    </span> 
+        </div>
     </div>
-   
-  <div class="p1">
-        <P>
-             Вопросы для тестирования
-        </P>
-    </div>
+</div>
  
+{% endblock log_in %}
 
 </div>
 <div class="img_al2">

@@ -13,9 +13,9 @@ urlpatterns = [
     path('registration/', views.registration, name = 'registration'),
     
     path('Teachers/', views.Teachers, name='Teachers'),
-    path('<slug:subjects_slug>/', views.SubjectsDetailView.as_view(), name='subjects_all'),
+    path('<slug:subjects_slug>/', views.subjects_all, name='subjects_all'),
     
     
     path('logout/', views.logout, name = 'logout'),
 ]
-  
+#path('<slug:subjects_slug>/', views.SubjectsDetailView.as_view(), name='subjects_all'),

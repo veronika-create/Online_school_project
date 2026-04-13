@@ -16,5 +16,7 @@ urlpatterns = [
     path('profile_prep/', views.profile_prep, name = 'profile_prep'),
     path('results/', views.results, name = 'results'),
     path('Tests/', views.Tests, name = 'Tests'),
+    path('', GetQuestion.as_view()),
+    path('answer/', QuestionAnswer.as_view()),
 
 ]

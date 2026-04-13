@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Courses(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
@@ -81,11 +82,9 @@ class Lectures(models.Model):
 
 class Tests(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
+    description = models.TextField(blank=True, null=True, verbose_name='Вопрос')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
-    description = models.TextField(blank=True, null=True, verbose_name='Описание')
     
-
-
     class Meta:
         db_table =  'tests'
         verbose_name = 'тест'
@@ -93,7 +92,46 @@ class Tests(models.Model):
 
     def __str__(self):
         return f'{self.name}' 
+    
 
+
+class Questions (models.Model):
+    name = models.CharField(max_length=150, unique=True, verbose_name='Название вопроса')
+    question_text = models.CharField(max_length=500, verbose_name='Текст вопроса')
+    more_text = models.CharField(max_length=10000, null=True, blank=True, verbose_name='Доп. инфо')
+    category = models.ForeignKey(to=Tests, on_delete=models.CASCADE, verbose_name='База знаний')
+
+    class Meta:
+        db_table =  'question'
+        verbose_name = 'вопрос'
+        verbose_name_plural = 'вопросы'
+
+    def __str__(self):
+        return f'{self.name}' 
+
+class Choice (models.Model):
+    name = models.CharField(max_length=150, unique=True, verbose_name='Название')
+    question = models.ForeignKey(Questions,on_delete=models.CASCADE, verbose_name='Вопрос')
+    choice_text = models.CharField(max_length=200,)
+    bal = models.IntegerField()
+    
+    class Meta: 
+        db_table =  'choice'
+        verbose_name = 'варианты'
+        verbose_name_plural = 'варианты'
+
+    def __str__(self):
+        return f'{self.name}' 
+    
+class Answer(models.Model):
+    
+    #user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING)
+    question = models.ForeignKey(Questions, on_delete=models.DO_NOTHING)
+    choice = models.ForeignKey(Choice, on_delete=models.DO_NOTHING)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.choice}' 
 
 class Resulst(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
