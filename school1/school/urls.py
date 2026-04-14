@@ -15,7 +15,7 @@ urlpatterns = [
     path('user/', include('users.urls', namespace='user')),
     path('prep/', include('groups.urls', namespace='groups')),
     path('subjects_all/', include('main.urls', namespace='subjects_all')),
-    
+    path('feedback/', include('feedback.urls', namespace='feedback')),
     path('accounts/', include('users.urls', namespace='accounts')),
 ]
 
