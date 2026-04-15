@@ -10,7 +10,7 @@ class UserLoginForm(AuthenticationForm):
 
 class Meta:
     model = User
-    fielsd = ['username', 'password']
+    fields = ['username', 'password']
 
 class UserRegistrationForm(UserCreationForm):
     model = User
@@ -30,9 +30,13 @@ class ProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields={
+        "image",
         "username",
         "email",
         }
+
+
+image = forms.ImageField(required=False)
 username = forms.CharField()
 email = forms.CharField()
 

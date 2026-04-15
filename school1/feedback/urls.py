@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import FeedbackView
+from feedback.views import FeedbackView
 
 app_name = 'feedback'
 

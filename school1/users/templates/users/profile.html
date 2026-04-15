@@ -12,16 +12,25 @@
  {% block log_in %}
 <div class="container_log">
     <div class="content_log">
-        <div class="img">
-            <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70%">
-            <input type="file" class:"form-control" id="avatar" accept="image/">
-        </div> 
-            <form action="{% url "users:profile" %}"method="post">
-                {% csrf_token %}
+        <form action="{% url "users:profile" %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="img">
+                {% if user.image %}
+                    <img src="{{user.image.urt}}" alt="" width="70%">
+                {% else %}
+                <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70%">
+                {% endif %}
+                <input type="file" class:"form-control" id="id_image" name="image" accept="image/">
+                {% if form.image.errors %}
+                <div class="alert alert-danger alert-dismissible fade show"> {{form.image.errors}}</div>
+                {% endif %}
+            </div> 
+            
+                
                     <div class="input-box_reg">
                         <div class="text">
-                        <input type="text" class:"form-control" id="id_username" placeholder="Введите логин" 
-                        value=""{{form.username.value}}
+                        <input type="text" class:"form-control" id="id_username" name:="username" placeholder="Введите логин" 
+                        value="{{form.username.value}}"
                         required>
                         </div>
                         <div class="name">
@@ -35,24 +44,22 @@
                     </div>
                     <div class="input-box_reg">
                         <div class="text">
-                        <input type="email" class:"form-control" id="id_email" placeholder="Введите Email *example@yande.ru" 
-                        value=""{{form.email.value}}
+                        <input type="email" class:"form-control" id="id_email" name:="email" placeholder="Введите Email *example@yande.ru" 
+                        value="{{form.email.value}}"
                         required>
                         </div>
                         <div class="name">
                         <label for="id_email" class="form-lable">Email:</label>
                         </div>
-                         {% if form.email.errors %}
-                        <div class="alert alert-danger alert-dismissible fade show">
-                        {{form.email.errors}}
-                        </div>
+                        {% if form.email.errors %}
+                        <div class="alert alert-danger alert-dismissible fade show">{{form.email.errors}}</div>
                         {% endif %}
                     </div>
                     <div class="button">
                         <a href="{% url "users:profile" %}"><input type="button" value="Сохранить"></a>
                     </div>
                     </div>
-                </form>
+        </form>
                 
         </div>
     </div>

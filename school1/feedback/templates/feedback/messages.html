@@ -11,7 +11,8 @@
 <div class="container_log">
     <div class="content_log">
 
-                <form action="#">
+                <form action="{% url "feedback_view" %}" method="post">
+                    {% csrf_token %}
                     <div class="input-box_reg">
                         <div class="text">
                         <input type="text"  class="Login">

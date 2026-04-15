@@ -18,7 +18,11 @@
                     
                     <div class="input-box_reg">
                         <div class="text">
-                        <input type="text" class:"form-control" name="username" id="id_username" placeholder="Введите логин" required>
+                        <input type="text" class:"form-control" name="username"
+                        value="{% if form.usernave.value %}
+                        {{form.usernave.value}}
+                        {% endif %}"
+                        id="id_username" placeholder="Введите логин" required>
                         </div>
                         <div class="name">
                         <label for="id_username" class="form-lable">Login:</label>

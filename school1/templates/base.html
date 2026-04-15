@@ -37,37 +37,25 @@
                 <a href="{% url "main:subjects_all" subject.slug %}">{{subject.name}}</a>
                 {% endfor %} 
                 <a href="{% url "users:login" %}"> Войти </a>
-
+                {% else %}
                 
-
                 {% if user.is_admim %}
-                <a href="{% url "users:index" %}">Главная</a><br><br>
-                <a href="{% url "users:about_us_adm" %}">О нас</a><br><br>
                 <a href="{% url "users:List_of_teachers" %}">Список учителей</a><br><br>
-                <a href="{% url "users:Massages" %}">Обращения</a><br><br>
-                <a href="{% url "users:registed_users" %}">Пользователи</a><br><br>
-                <a href="{% url "users:list_of_teachers_for_groups" %}">Группы</a>
-                <a href="{% url "users:list_of_students" %}">Ученики</a>
-                
+                <a href="{% url "feedback:messages" %}">Обращения</a><br><br>
+                <a href="{% url "#" %}">Пользователи</a><br><br>
+                <a href="{% url "#" %}">Группы</a>
+                <a href="{% url "#" %}">Ученики</a>
                 <a href="{% url "admin:index" %}">Админ панель</a>
-                <a href="{% url "users:profile" %}">
-                <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70"></a>
                 {% endif %}
 
                 {% if user.is_staff %}
-                <a href="{% url "groups:index" %}">Главная</a>
-                <a href="{% url "groups:about_us_prep" %}">О нас</a>
-                <a href="{% url "groups:Courses" %}">Мои курсы</a>
-                <a href="{% url "groups:Groups" %}">Мои группы</a>
-                <a href="{% url "groups:base_of_knowledge" %}">База знаний</a>
-                <a href="{% url "groups:Tests" %}"> Тесты</a>
-                <a href="{% url "groups:Lectures" %}"> Лекции</a>
-                <a href="{% url "groups:Help_prep" %}"> Помощь</a>
-                <a href="{% url "users:profile" %}">
-                <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70"></a>
+                <a href="{% url "#" %}">Мои курсы</a>
+                <a href="{% url "#" %}">Мои группы</a>
+                <a href="{% url "#" %}"> Тесты</a>
+                <a href="{% url "#" %}">
                 {% endif %}
 
-                {% else %}
+                
                 <a href="{% url "lessons:index" %}">Главная</a>
                 {% for lesson in lessons %}
                 <a href="{% url "lessons:lessons_all" lesson.slug %}">{{lesson.name}}</a>
@@ -95,6 +83,7 @@
 
 <div class="first_ph"><img src="{% static "img/он.об.png" %}" alt=""></div>
 <!-- Форма обратной связи -->
+ {% include "includes/notifications.hmtl" %}
 {% block connect %}{% endblock connect %}
 <!-- карточки предметов -->
 
@@ -112,8 +101,12 @@
 
                 <h2 class="ft-title">Fast links</h2>
                 <ul>
+                    {% if not user.is_authenticated %}
                     <li><a href="{% url "main:index" %}">Главная</a></li>
                     <li><a href="{% url "main:login" %}">Войти</a></li>
+                    {% else %}
+                    <a href="{% url "main:index" %}">Главная</a>
+                    <a href="{% url "users:logout" %}">Выход</a>
                     
                 </ul>
 

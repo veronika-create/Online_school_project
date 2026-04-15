@@ -56,7 +56,9 @@ INSTALLED_APPS = [
     'orders',
     'groups',
     'feedback',
+    'rest_framework',
     'testing',
+    'testappi',
 
 ]
 

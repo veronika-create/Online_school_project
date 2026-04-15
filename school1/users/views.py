@@ -19,7 +19,7 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
-                #messages.success(request, f"{username}, Вы вошли в аккаунт") 
+                messages.success(request, f"{username}, Вы вошли в аккаунт") 
                 return HttpResponseRedirect(reverse('users:profile'))
     else:
         form= UserLoginForm()
@@ -46,8 +46,8 @@ def registration (request):
         'form': form,
           }
     return render(request, 'users/registration.html', context=context)
-@login_required
 
+@login_required
 def profile (request):
     if request.method == 'POST':
         form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)

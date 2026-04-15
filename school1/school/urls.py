@@ -16,6 +16,8 @@ urlpatterns = [
     path('prep/', include('groups.urls', namespace='groups')),
     path('subjects_all/', include('main.urls', namespace='subjects_all')),
     path('feedback/', include('feedback.urls', namespace='feedback')),
+    path('questions/', include('testing.urls', namespace='questions')),
+	#path('testapi/', views.QuizApiList.as_view()),
     path('accounts/', include('users.urls', namespace='accounts')),
 ]
 
