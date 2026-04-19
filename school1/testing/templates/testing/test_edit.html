@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+ {% block css %}
+ <title>База знаний</title>
+    <link rel="stylesheet" href="{% static "styles/base.css" %}">
+    <link rel="stylesheet" href="{% static "styles/Log_in.css" %}">
+    <link rel="stylesheet" href="{% static "styles/Content.css" %}">
+    <link rel="stylesheet" href="{% static "styles/Cards.css" %}">
+ {% endblock css %}
+{% block cards_of_lessons %}
+    <div>
+ {% block log_in %}
+<div class="container_log">
+    <div class="content_log">
+        <div class="img">
+            <img src="{% static "img/elephpant-running-78x48.gif" %}" alt="" width="70%">
+        </div> 
+           <form action="" method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    {{ field.errors }}
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+               
+                
+            </form>
+     
+        </div>
+    </div>
+</div>
+
+{% endblock log_in %}
+
+</div>
+
+
+
+
+
+
+<div class="img_al2">
+<img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
+</div>
+{% endblock cards_of_lessons %}

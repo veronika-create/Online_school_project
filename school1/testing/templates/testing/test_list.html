@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+ {% block css %}
+ <title>База знаний</title>
+    <link rel="stylesheet" href="{% static "styles/base.css" %}">
+    <link rel="stylesheet" href="{% static "styles/Log_in.css" %}">
+    <link rel="stylesheet" href="{% static "styles/Content.css" %}">
+    <link rel="stylesheet" href="{% static "styles/Cards.css" %}">
+ {% endblock css %}
+{% block cards_of_lessons %}
+    <div>
+ {% block log_in %}
+<div class="container_log">
+    <div class="content_log">
+        <div class="img">
+            <img src="{% static "img/elephpant-running-78x48.gif" %}" alt="" width="70%">
+        </div> 
+         <section>
+
+              <section>
+            <form name = "testForm" onsubmit = "return submitAnswers (answers = [{% for t in questions %}'{{ t.answer }}',{% endfor %}])">
+            {%csrf_token%}
+            {% for t in questions %}
+            <div class="h3_pr">
+			<h3> {{ t.id }}.  {{ t.question }}</h3>
+            <div/>
+            <input type = "radio" name = "t{{ t.id }}" value = "a" id = "t1a">   a. {{ t.option1 }}<br><br>
+			<input type = "radio" name = "t{{ t.id }}" value = "b" id = "t1b">   b. {{ t.option2 }}<br><br>       
+			<input type = "radio" name = "t{{ t.id }}" value = "c" id = "t1c">   c. {{ t.option3 }}<br><br>
+			<input type = "radio" name = "t{{ t.id }}" value = "d" id = "t1d">   d. {{ t.option4 }}<br><br>
+			{% endfor %}
+		</section>
+                {% endfor %}
+                {% if edit_choice %}
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+                
+                {% else %}
+                <button type="submit" class="btn btn-primary">Добавить вопрос</button>
+                {% endif %}
+                <a class="btn btn-warning" href="{% url 'testing:test' %}" role="button">Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+ </section>
+{% endblock log_in %}
+
+</div>
+
+
+
+
+
+
+<div class="img_al2">
+<img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
+</div>
+{% endblock cards_of_lessons %}
