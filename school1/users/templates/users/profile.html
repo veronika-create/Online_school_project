@@ -69,3 +69,30 @@
 <div class="img_al2">
 <img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
 </div>
+
+{% block cards_of_lessons %}
+<div class="p1">
+        <P>
+            {% if user.is_staff %}
+            <a href="{% url "groups:Courses" %}">Мои курсы</a><br><br>
+            <a href="{% url "groups:Groups" %}">Мои группы</a><br><br>
+            <a href="{% url "groups:base_of_knowledge" %}">База знаний</a><br><br>
+            {% if user.is_admim %}
+            <a href="{% url "users:List_of_teachers" %}">Список учителей</a><br><br>
+            <a href="{% url "feedback:messages" %}">Обращения</a><br><br>
+            <a href="{% url "main:index" %}">Пользователи</a><br><br>
+            <a href="{% url "main:index" %}">Группы</a>
+            <a href="{% url "main:index" %}">Ученики</a>
+            <a href="{% url "admin:index" %}">Админ панель</a>
+            {% else %}
+            <a href="{% url "lessons:Syntacsis" %}">Основы синтаксиса</a><br><br>
+            <a href="{% url "lessons:History" %}">История PHP</a><br><br>
+            <a href="{% url "lessons:Massyvy" %}">Массивы</a><br><br>
+            <a href="{% url "lessons:Obgects" %}">Объекты и классы</a><br><br>
+            <a href="{% url "lessons:Methods" %}">Методы</a><br><br>
+            <a href="{% url "lessons:MySQL_in_PHP" %}">MySQL в PHP</a><br><br>
+            <a href="{% url "lessons:Cookie" %}">Фалы cookie</a>
+            {% endif %}
+        </P>
+    </div>
+{% endblock cards_of_lessons %

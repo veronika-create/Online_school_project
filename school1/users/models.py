@@ -3,16 +3,16 @@ from django.contrib.auth.models import AbstractUser, Permission
 
 class User(AbstractUser):
     image = models.ImageField(upload_to='users_images', blank=True, null=True, verbose_name='Аватар')
-    email = models.EmailField(verbose_name='email address', max_length=254, unique=True, db_index=True)
-    groups= models.ManyToManyField(Permission, verbose_name='brabrabra', blank=True, help_text='Specific Permissions for this user.', related_name='brabrabra')
-    user_permissions = models.ManyToManyField(Permission, verbose_name='abracadabra', blank=True, help_text='Specific Permissions for this user.', related_name='abracadabra')
+    #email = models.EmailField(verbose_name='email address', max_length=254, unique=True, db_index=True)
+    #groups= models.ManyToManyField(Permission, verbose_name='brabrabra', blank=True, help_text='Specific Permissions for this user.', related_name='brabrabra')
+    #user_permissions = models.ManyToManyField(Permission, verbose_name='abracadabra', blank=True, help_text='Specific Permissions for this user.', related_name='abracadabra')
 
 
     class Meta:
         db_table =  'user'
         verbose_name = 'Пользователя'
         verbose_name_plural = 'Пользователи'
-        swappable = 'AUTH_USER_MODEL'
+        #swappable = 'AUTH_USER_MODEL'
         
     def _str__(self):
         return f'{self.username}' 

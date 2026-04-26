@@ -128,6 +128,16 @@ body {
     box-shadow: 4px 4px 8px 0rgba(34, 60, 80, 0.2);
 }
 
+.content1{
+    display:block;
+    align-items:center;
+    justify-content:right;
+    background: white;
+    padding: 60px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px 0rgba(34, 60, 80, 0.2);
+}
+
 .left-side{
     width: 25%;
     height: 50%;

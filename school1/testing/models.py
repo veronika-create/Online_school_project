@@ -15,7 +15,7 @@ class Test(models.Model):
 
     class Meta:
         db_table =  'test'
-        verbose_name = 'Теста'
+        verbose_name = 'Тест'
         verbose_name_plural = 'Тесты'
         
     def __str__(self):

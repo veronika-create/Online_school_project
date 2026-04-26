@@ -25,7 +25,7 @@ class Groups(models.Model):
     
     class Meta:
         db_table =  'groups'
-        verbose_name = 'группа'
+        verbose_name = 'группы'
         verbose_name_plural = 'группы'
 
     
@@ -40,7 +40,7 @@ class Material_for_students(models.Model):
     
     
     class Meta:
-        db_table =  'material_ofr_students'
+        db_table =  'material_for_students'
         verbose_name = 'материал'
         verbose_name_plural = 'материалы'
 
@@ -58,7 +58,7 @@ class Base_of_knowledge(models.Model):
     class Meta:
         db_table =  'base_of_knowledge'
         verbose_name = 'база_знаний'
-        verbose_name_plural = 'бау_знаний'
+        verbose_name_plural = 'базы_знаний'
 
     def __str__(self):
         return f'{self.name}' 
