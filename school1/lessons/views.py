@@ -5,12 +5,11 @@ from django.views.generic import DetailView
 
 from lessons.models import Lessons
 
-def index(request):
+def lessons(request):
     lessons = Lessons.objects.all()
-    return render(request, 'lessons/index.html', {"lessons": lessons})
+    return render(request, 'lessons/lessons.html', {"lessons": lessons})
 
-def about_us_std(request):
-    return render(request, 'lessons/about_us_std.html')
+
 
 def lessons_all (request, lessons_slug):
     lesson=Lessons.objects.get(slug=lessons_slug)
@@ -34,8 +33,3 @@ def lessons_all (request, lessons_slug):
     #def get_object (self, queryset=None):
         #return get_object_or_404 (Lessons, slug=self.kwargs[self.slug_url_kwarg])
     
-def Log_in(request):
-    return render(request, 'lessons/Log_in.html')
-
-def Profile_std(request):
-    return render(request, 'lessons/Profile_std.html')

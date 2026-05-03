@@ -20,7 +20,7 @@ def login(request):
             if user:
                 auth.login(request, user)
                 messages.success(request, f"{username}, Вы вошли в аккаунт") 
-                return HttpResponseRedirect(reverse('users:profile'))
+                return HttpResponseRedirect(reverse('user:profile'))
     else:
         form= UserLoginForm()
 

@@ -14,26 +14,15 @@
    
 
 
-{% block cards_of_lessons %}
-{% for subject in subjects %}
- 
-<div class="img_al3">
-    
-        <img src="{{subject.image.url}}" alt=""  width = "490">
-  
-</div>
+{% block cards_of_lessons %} 
 
-<div class="p_pr">
-
-    
-        <p>{{subject.description|linebreaksbr}}</p>
-   
-   
+<div class="p_pr"> 
+ <p>{{subject.description|linebreaksbr}}</p>
 </div>
-        
-{% endfor %} 
+<div class="img_al2">
+<img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
+</div>
 {% endblock cards_of_lessons %}
- 
 
 
 

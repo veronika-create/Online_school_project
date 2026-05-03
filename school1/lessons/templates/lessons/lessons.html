@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block css %}
+<title>Online school</title>
+<link rel="stylesheet" href="{% static "styles/base.css" %}">
+<link rel="stylesheet" href="{% static "styles/Cards.css" %}">
+{% endblock css %}
+
+
+
+<!-- карточки предметов -->
+{% block cards_of_lessons %}
+    
+
+<div class="container_crd">
+
+      
+<div class="card">
+            {% for lesson in lessons %}
+            {% if lesson.image %}
+            <a href="{% url "lessons:lessons_all" lesson.slug %}"><img src="{{lesson.image.url}}" alt="" width="90%"></a>
+            {% endif %}
+            <div class="info">
+                
+               <a href="{% url "lessons:lessons_all" lesson.slug %}">
+                    <div class="text1">{{lesson.name}}</div>
+                    <a href="{% url "lessons:lessons_all" lesson.slug %}">
+                        <div class="button1">
+                        <input type="button" value="Хочу узнать больше">
+                        </div>
+                    </a>
+                </a>
+            </div>
+            
+        {% endfor %}
+        </div>
+       
+</div>  
+    
+{% endblock cards_of_lessons %}
+

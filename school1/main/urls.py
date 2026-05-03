@@ -8,14 +8,13 @@ app_name = 'main'
 urlpatterns = [
     path('', views.index, name='index'),
     path('About_us/', views.About_us, name='About_us'),
-    path('login/', views.login, name='login'),
-    path('profile/', views.profile, name='profile'),
-    path('registration/', views.registration, name = 'registration'),
+    #path('login/', views.login, name='login'),
+    #path('profile/', views.profile, name='profile'),
+    #path('registration/', views.registration, name = 'registration'),
     
     path('Teachers/', views.Teachers, name='Teachers'),
     path('<slug:subjects_slug>/', views.subjects_all, name='subjects_all'),
     
-    
-    path('logout/', views.logout, name = 'logout'),
+
 ]
 #path('<slug:subjects_slug>/', views.SubjectsDetailView.as_view(), name='subjects_all'),

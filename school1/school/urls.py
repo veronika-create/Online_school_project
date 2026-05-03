@@ -11,14 +11,14 @@ from school import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls', namespace='main')),
-    path('lessons_all/', include('lessons.urls', namespace='lessons')),
+    path('lessons/', include('lessons.urls', namespace='lessons_all')),
     path('user/', include('users.urls', namespace='user')),
-    path('prep/', include('groups.urls', namespace='groups')),
+    #path('prep/', include('groups.urls', namespace='groups')),
     path('subjects_all/', include('main.urls', namespace='subjects_all')),
     path('feedback/', include('feedback.urls', namespace='feedback')),
     path('questions/', include('testing.urls', namespace='questions')),
 	#path('testapi/', views.QuizApiList.as_view()),
-    path('accounts/', include('users.urls', namespace='accounts')),
+    #path('accounts/', include('users.urls', namespace='accounts')),
 ]
 
 if settings.DEBUG:

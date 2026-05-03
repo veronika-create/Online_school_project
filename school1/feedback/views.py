@@ -16,7 +16,7 @@ class FeedbackView(View):
             context= {
             'form': form,
           }
-            return render(request, 'message.html, context=context')
+            return render(request, 'messages.html, context=context')
         else:
             form= FeedbackView()
         context= {

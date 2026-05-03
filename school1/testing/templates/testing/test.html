@@ -9,7 +9,7 @@
  {% endblock css %}
 {% block cards_of_lessons %}
     <div>
- {% block log_in %}
+ 
 <div class="container_log">
     <div class="content_log">
         <div class="img">
@@ -28,18 +28,19 @@
 			<input type = "radio" name = "t{{ t.id }}" value = "d" id = "t1d">   d. {{ t.option4 }}<br><br>
 			{% endfor %}
 
-            <br><br>
+            <div class="button">
 				<input type = "submit" value = "Ответить">
+             </div>
 			</form>
-			<br><br>
-		<a href="testing:results" class="button">Ответить</a>
+			
+		
 		</section>
      
         </div>
     </div>
 </div>
  </section>
-{% endblock log_in %}
+
 
 </div>
 

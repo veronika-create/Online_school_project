@@ -12,69 +12,14 @@
 
  
 
-{% block cards_of_lessons %}
-
-{% for lesson in lessons %}
-    
-<div class="img_al3">  
-        <img src="{{lesson.image.url}}" alt=""  width = "490">
-</div>
+{% block cards_of_lessons %} 
 
 <div class="p_pr"> 
-        <p>{{lesson.description|linebreaksbr}}</p> 
+ <p>{{lesson.description|linebreaksbr}}</p>
 </div>
-{% endfor %} 
+<div class="img_al2">
+<img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
+</div>
 {% endblock cards_of_lessons %}
-
-<!-- Форма обратной связи -->
-  {% block connect %}
- <div class="container_sv">
-    <div class="content">
-        <div class="left-side">
-            <div class="addres details">
-                <i class="fas fa-map-marker-alt"></i>
-                <div class="topic">Адрес</div>
-                <div class="text-one">г. Москва</div>
-                <div class="text-two">Цветной бульвар ул., 8 д.</div>
-            </div>
-          <div class="phone details">
-                <i class="fas fa-phone-alt"></i>
-
-                <div class="text-one">+7 965 120 22 46</div>
-            <div class="email details"></div>
-                <i class="fas fa-envelope"></i>
-
-                <div class="text-one">Online.school@yandex.ru</div>
-
-          
-        </div>
-       
-          <div class="right-side">
-                <div class="topic-text">Задайте нам вопрос</div>
-                <form action="#">
-                    <div class="input-box">
-                        <input type="text" placeholder="Фамилия Имя Отчетсво">
-                    </div>
-                    <div class="input-box">
-                        <input type="text" placeholder="Email">
-                    </div>
-                    <div class="input-box">
-                        <textarea placeholder="Текст сообщения"></textarea>
-                    </div>
-                    <div class="button">
-                        <input type="button" value="Отправить">
-                    </div>
-                </form>
-                </div>
-            </div>
-    
-    </div>
-        
-    <script src="https://kit.fontawesome.com/04e6d630bb.js" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-    </div>
-
-</div>
-{% endblock connect %}
 
 

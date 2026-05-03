@@ -49,8 +49,8 @@ def subjects_all (request, subjects_slug):
     #def get_object (self, queryset=None):
          #return get_object_or_404 (Subjects, slug=self.kwargs[self.slug_url_kwarg])
     
-def login(request):
-    return render(request, 'main/login.html')
+#def login(request):
+    #return render(request, 'main/login.html')
 
 #def login(request):
     #context= {
@@ -58,21 +58,21 @@ def login(request):
          # }
     #return render(request, 'main/login.html', context=context)
 
-def registration (request):
-    context= {
-        'title': 'Home - Регистрация'
-          }
-    return render(request, 'main/registration.html', context=context)
+#def registration (request):
+    #context= {
+        #'title': 'Home - Регистрация'
+          #}
+    #return render(request, 'main/registration.html', #context=context)
 
-def profile (request):
-    context= {
-        'title': 'Home - Кабинет'
-          }
+#def profile (request):
+    #context= {
+        #'title': 'Home - Кабинет'
+          #}
     
-    return render(request, 'main/profile.html', context=context)
+    #return render(request, 'main/profile.html', #context=context)
 
-def logout (request):
-   ...
+#def logout (request):
+   #...
     
     
     
