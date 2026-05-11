@@ -18,7 +18,22 @@
                     {% csrf_token %}
                     <div class="input-box_reg">
                         <div class="text">
-                        <input type="text" class:"form-control" id="id_username"
+                        <input type="text" class="form-control" id="id_username"
+                        value="{% if form.username.value %} {{form.username.value}} {% endif %}"
+                        name="username" placeholder="Введите логин" required>
+                        </div>
+                        <div class="name">
+                        <label for="id_username" class="form-lable">Login:</label>
+                        </div>
+                        {% if form.username.errors %}
+                        <div class="alert alert-danger alert-dismissible fade show">
+                            {{form.username.errors}}
+                        </div>
+                        {% endif %}
+                    </div>
+                     <div class="input-box_reg">
+                        <div class="text">
+                        <input type="text" class="form-control" id="id_username"
                         value="{% if form.username.value %} {{form.username.value}} {% endif %}"
                         name="username" placeholder="Введите логин" required>
                         </div>
@@ -33,8 +48,23 @@
                     </div>
                     <div class="input-box_reg">
                         <div class="text">
-                        <input type="email" class:"form-control" id="id_email" 
-                        value="{% if form.username.value %} {{form.email.value}}  {% endif %}"
+                        <input type="text" class="form-control" id="id_username"
+                        value="{% if form.username.value %} {{form.username.value}} {% endif %}"
+                        name="username" placeholder="Введите логин" required>
+                        </div>
+                        <div class="name">
+                        <label for="id_username" class="form-lable">Login:</label>
+                        </div>
+                        {% if form.username.errors %}
+                        <div class="alert alert-danger alert-dismissible fade show">
+                            {{form.username.errors}}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="input-box_reg">
+                        <div class="text">
+                        <input type="email" class="form-control" id="id_email" 
+                        value="{% if form.email.value %} {{form.email.value}}  {% endif %}"
                         name="email" placeholder="Введите Email" required>
                         </div>
                         <div class="name">
@@ -49,12 +79,12 @@
                     <div class="input-box_reg">
                         <div class="text">
                         <div class="text">
-                        <input type="password" class:"form-control" id="id_password1" 
+                        <input type="password" class="form-control" id="id_password1" 
                         value="{% if form.password1.value %} {{form.password1.value}}{% endif %}"
                         name="password1" placeholder="Введите пароль" required>
                         </div>
                         <div class="name1">
-                        <label for="id_password2" class="form-lable">Пароль:</label>
+                        <label for="id_password1" class="form-lable">Пароль:</label>
                         </div>
                         </div>
                         {% if form.password1.errors %}
@@ -66,7 +96,7 @@
                     <div class="input-box_reg">
                         <div class="text">
                         <div class="text">
-                        <input type="password" class:"form-control" id="id_password2" 
+                        <input type="password" class="form-control" id="id_password2" 
                         value="{% if form.password2.value %} {{form.password2.value}}{% endif %}"
                         name="password2" placeholder="Подтвердите пароль" required>
                         </div>
@@ -82,7 +112,7 @@
                     </div>
                     <div class="log_and_reg">
                     <div class="button">
-                        <a href="{% url "user:profile" %}"><input type="button" value="Отправить"></a>
+                        <button type='submit' class='btn btn-dark'>Отправить</button>
                     </div>
                     </div>
                 </form>

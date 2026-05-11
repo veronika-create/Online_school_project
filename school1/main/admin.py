@@ -1,5 +1,7 @@
 from django.contrib import admin
 
+
+
 from main.models import Categories
 from main.models import Subjects
 from main.models import About_us
@@ -20,6 +22,9 @@ class About_usAdmin(admin.ModelAdmin):
 @admin.register(Teachers )
 class TeachersAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
+
+
+
 
 
 

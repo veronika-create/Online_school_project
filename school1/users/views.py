@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 
 from django.contrib import auth, messages
@@ -20,13 +21,13 @@ def login(request):
             if user:
                 auth.login(request, user)
                 messages.success(request, f"{username}, Вы вошли в аккаунт") 
-                return HttpResponseRedirect(reverse('user:profile'))
+                return HttpResponseRedirect(reverse('main:index'))
     else:
         form= UserLoginForm()
 
     context= {
         'title': 'Home - Аторизация',
-        'form': form
+        'form': form,
           }
     return render(request, 'users/login.html', context=context)
 
@@ -36,9 +37,9 @@ def registration (request):
         if form.is_valid():
                 form.save()
                 user= form.instance
-                auth.login(request,user)
+                auth.login(request, user)
                 messages.success(request, f"{user.username}, Вы успешно зарегистрированы и вошли в аккаунт") 
-                return HttpResponseRedirect(reverse('user:login'))
+                return HttpResponseRedirect(reverse('user:profile'))
     else:
         form= UserRegistrationForm()
     context= {

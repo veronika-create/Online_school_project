@@ -9,6 +9,7 @@ urlpatterns = [
     path('lessons_all/<slug:lessons_slug>/', views.lessons_all, name='lessons_all'),
     
     
+    
 
 ]
 

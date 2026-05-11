@@ -59,6 +59,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'testing',
     'testappi',
+    'import_export',
+    'django_docxtpl',
 
 ]
 
@@ -168,4 +170,5 @@ INTERNAL_IPS = [
  
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User' 
-#LOGIN_REDIRECT_URL ='user/profile/'
+LOGIN_REDIRECT_URL ='user/profile/'
+IMPORT_EXPORT_USE_TRANSACTIONS = True

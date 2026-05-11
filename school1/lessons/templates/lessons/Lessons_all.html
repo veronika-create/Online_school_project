@@ -17,8 +17,34 @@
 <div class="p_pr"> 
  <p>{{lesson.description|linebreaksbr}}</p>
 </div>
+
 <div class="img_al2">
 <img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
+</div>
+
+<div class="p_pr">
+<h3 class="card-title">Скачать лекцию</h3>
+
+<form method="POST" action="{% url "lessons:lessons" %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+        <label>Выберете формат</label>
+          <select class="custom-select" name="file-format">
+            <option selected>Выберете формат...</option>
+            <option>Word</option>
+            <option>XLS (Excel)</option>
+          </select><br><br><br>
+        
+            <div class="button">
+        <button type="submit" >Скачать</button>
+        </div>
+<div class="button">
+        <input type="submit" value="Скачать">
+          </div>
+        </div> 
+       
+</form>
+
 </div>
 {% endblock cards_of_lessons %}
 
