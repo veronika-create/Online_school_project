@@ -45,11 +45,11 @@
                     <a href="{% url "lessons_all:lessons_all" lesson.slug %}">{{lesson.name}}</a>
                     {% endfor %}
                     <a href="{% url "testing:tests" %}"> Тесты</a>
-                    <a href="{% url "user:logout" %}">Выход</a>
+                    
                     
                     {% if user.is_admim  or  user.is_staff%}
                      
-                        <a href="{% url "feedback:feedback" %}">Обращения</a><br><br>
+                        <a href="{% url "feedback:questions" %}">Обращения</a><br><br>
                         <a href="{% url "admin:index" %}">Админ панель</a>
                     {% endif %}
                     <a href="{% url "user:profile" %}"><img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" width="70"></a>
@@ -77,57 +77,6 @@
 <!-- Форма обратной связи -->
 
 {% block connect %}
-<!-- Форма обратной связи -->
-
- <div class="container_sv">
-    <div class="content">
-        <div class="left-side">
-            <div class="addres details">
-                <i class="fas fa-map-marker-alt"></i>
-                <div class="topic">Адрес</div>
-                <div class="text-one">г. Москва</div>
-                <div class="text-two">Цветной бульвар ул., 8 д.</div>
-            </div>
-          <div class="phone details">
-                <i class="fas fa-phone-alt"></i>
-
-                <div class="text-one">+7 965 120 22 46</div>
-            <div class="email details"></div>
-                <i class="fas fa-envelope"></i>
-
-                <div class="text-one">Online.school@yandex.ru</div>
-
-          
-        </div>
-       
-          <div class="right-side">
-                <div class="topic-text">Задайте нам вопрос</div>
-                <form action="{% url "main:index" %}" method="post">
-                    {% csrf_token %}
-                    <div class="input-box">
-                        <input type="text" placeholder="Фамилия Имя Отчетсво">
-                    </div>
-                    <div class="input-box">
-                        <input type="text" placeholder="Email">
-                    </div>
-                    <div class="input-box">
-                        <textarea placeholder="Текст сообщения"></textarea>
-                    </div>
-                    <div class="button">
-                        <button type='submit' class='btn btn-dark'>Отправить</button>
-                    </div>
-                </form>
-                </div>
-            </div>
-    
-    </div>
-        
-    <script src="https://kit.fontawesome.com/04e6d630bb.js" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-    </div>
-
-</div>
-
 {% endblock connect %}
 
 <!-- Форма регистрации -->
@@ -151,6 +100,8 @@
                     <li><a href="{% url "main:index" %}">Главная</a></li>
                     <li><a href="{% url "user:logout" %}">Выход</a></li>
                     {% endif %} 
+                    <li><a href="{% url "feedback:feedback" %}">Помощь</a></li>
+                    
                 </ul>
 
 

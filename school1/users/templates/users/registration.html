@@ -12,7 +12,6 @@
  {% block log_in %}
 <div class="container_log">
     <div class="content_log">
-
       <div class="topic-text_reg">Регистрация</div>
                 <form action="{% url "user:registration"%}" method="post">
                     {% csrf_token %}
@@ -33,31 +32,31 @@
                     </div>
                      <div class="input-box_reg">
                         <div class="text">
-                        <input type="text" class="form-control" id="id_username"
-                        value="{% if form.username.value %} {{form.username.value}} {% endif %}"
-                        name="username" placeholder="Введите логин" required>
+                        <input type="text" class="form-control" id="id_first_name"
+                        value="{% if form.first_name.value %} {{form.first_name.value}} {% endif %}"
+                        name="first_name" placeholder="Введите имя" required>
                         </div>
                         <div class="name">
-                        <label for="id_username" class="form-lable">Login:</label>
+                        <label for="id_first_name" class="form-lable">Имя:</label>
                         </div>
-                        {% if form.username.errors %}
+                        {% if form.first_name.errors %}
                         <div class="alert alert-danger alert-dismissible fade show">
-                            {{form.username.errors}}
+                            {{form.first_name.errors}}
                         </div>
                         {% endif %}
                     </div>
                     <div class="input-box_reg">
                         <div class="text">
-                        <input type="text" class="form-control" id="id_username"
-                        value="{% if form.username.value %} {{form.username.value}} {% endif %}"
-                        name="username" placeholder="Введите логин" required>
+                        <input type="text" class="form-control" id="id_last_name"
+                        value="{% if form.last_name.value %} {{form.last_name.value}} {% endif %}"
+                        name="last_name" placeholder="Введите фамилию" required>
                         </div>
                         <div class="name">
-                        <label for="id_username" class="form-lable">Login:</label>
+                        <label for="id_last_name" class="form-lable">Фамилия:</label>
                         </div>
-                        {% if form.username.errors %}
+                        {% if form.last_name.errors %}
                         <div class="alert alert-danger alert-dismissible fade show">
-                            {{form.username.errors}}
+                            {{form.last_name.errors}}
                         </div>
                         {% endif %}
                     </div>

@@ -7,61 +7,80 @@
     <link rel="stylesheet" href="{% static "styles/Content.css" %}">
     <link rel="stylesheet" href="{% static "styles/Cards.css" %}">
 {% endblock css %}
+
+
+
+<!-- Форма обратной связи -->
 {% block connect %}
-<div class="container_log">
-    <div class="content_log">
+ <div class="container_sv">
+    <div class="content">
+        <div class="left-side">
+            <div class="addres details">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="topic">Адрес</div>
+                <div class="text-one">г. Москва</div>
+                <div class="text-two">Цветной бульвар ул., 8 д.</div>
+            </div>
+          <div class="phone details">
+                <i class="fas fa-phone-alt"></i>
 
-                <form action="{% url "feedback_view" %}" method="post">
-                    {% csrf_token %}
-                    <div class="input-box_reg">
-                        <div class="text">
-                        <input type="text"  class="Login">
-                        </div>
-                        <div class="name">
-                        <label for="Login">Юзер:</label>
-                        </div>
-                    </div>
-                    <div class="input-box_reg">
-                        <div class="text">
-                        <input type="E-mail"  class="E-mail">
-                        </div>
-                        <div class="name">
-                        <label for="E-mail">E-mail:</label>
-                        </div>
-                    </div>
-                    <div class="input-box_reg">
-                        <div class="text">
-                        <div class="text">
-                        <input type="password" class="password">
-                        </div>
-                        <div class="name1">
-                        <label for="password">Вопрос:</label>
-                        </div>
-                        </div>
-                    </div>
+                <div class="text-one">+7 965 120 22 46</div>
+            <div class="email details"></div>
+                <i class="fas fa-envelope"></i>
 
-                      
-                   
-                </form>
+                <div class="text-one">Online.school@yandex.ru</div>
+
+          
         </div>
-    </div>
-</div>
-
-<div class="container_log">
-    <div class="content_log">
-
-                <form action="#">
-                    <div class="input-box_reg">
-                        <div class="text">
-                        <input type="text"  class="Login">
+       
+          <div class="right-side">
+                <div class="topic-text">Задайте нам вопрос</div>
+                <form action="{% url "feedback:feedback" %}" method="post">
+                    {% csrf_token %}
+                    <div class="input-box">
+                        <input type="text" name="name" id="id_name"  value="{% if form.name.value %} {{form.name.value}}  {% endif %}" placeholder="Фамилия Имя Отчетсво" required>
+                    {% if form.name.errors %}
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        {{form.name.errors}}
+                    </div>
+                    {% endif %}
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="email" id="id_email" value="{% if form.email.value %} {{form.email.value}}  {% endif %}" placeholder="Email" required>
+                    
+                    {% if form.email.errors %}
+                    <div class="alert alert-danger alert-dismissible fade show">
+                    {{form.email.errors}}
+                    </div>
+                    {% endif %}
+                    </div>
+                    <div class="input-box">
+                       <input type="text" name="descriprion" id="id_descriprion" value="{% if form.descriprion.value %} {{form.descriprion.value}}  {% endif %}" placeholder="Текст сообщения" required>
+                      {% if form.descriprion.errors %}
+                        <div class="alert alert-danger alert-dismissible fade show">
+                            {{form.descriprion.errors}}
                         </div>
-                        <div class="name">
-                        <label for="Login">Ответ:</label>
-                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="log_and_reg">
+                    <div class="button">
+                        <button type='submit' class='btn btn-dark'>Отправить</button>
+                    </div>
                     </div>
                 </form>
+                </div>
+            </div>
+    
     </div>
+        
+    <script src="https://kit.fontawesome.com/04e6d630bb.js" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    </div>
+
 </div>
+  
+</div>  
+
 
 <div class="img_al2">
 <img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">

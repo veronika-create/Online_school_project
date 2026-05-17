@@ -16,17 +16,15 @@
             {% csrf_token %}
             <div class="img">
                 {% if user.image %}
-                    <img src="{{user.image.urt}}" alt="" class="img-fluid rounded-circle" style="max-width: 150px">
+                    <img src="{{user.image.url}}" alt="" width="70%">
                 {% else %}
-                    <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" class="img-fluid rounded-circle" style="max-width: 150px;">
+                    <img src="{% static "img/character-avatar-isolated_729149-194801.avif" %}" alt="" class="img-fluid rounded-circle" style="max-width: 200px;">
                 {% endif %}
                 <input type="file" name="image" accept="image/" class="form-control" id="id_image">
                 {% if form.image.errors %}
                 <div class="alert alert-danger alert-dismissible fade show"> {{form.image.errors}}</div>
                 {% endif %}
             </div> 
-            
-                
                     <div class="input-box_reg">
                         <div class="text">
                         <input type="text" class="form-control" id="id_username" name="username" placeholder="Введите логин" 
@@ -104,14 +102,10 @@
     <div class="p1">
         <P>
             {% if user.is_admim or user.is_staff%}
-            <a href="{% url "main:index" %}">Мои курсы</a><br><br>
-            <a href="{% url "main:index" %}">Мои группы</a><br><br>
-            <a href="{% url "main:index" %}">База знаний</a><br><br>
-            <a href="{% url "main:index" %}">Список учителей</a><br><br>
-            <a href="{% url "feedback:feedback" %}">Обращения</a><br><br>
-            <a href="{% url "main:index" %}">Пользователи</a><br><br>
-            <a href="{% url "main:index" %}">Группы</a>
-            <a href="{% url "main:index" %}">Ученики</a>
+            <a href="{% url "main:index" %}">Курсы</a><br><br>
+            <a href="{% url "main:index" %}">Группы</a><br><br>
+            <a href="{% url "feedback:questions" %}">Обращения</a><br><br>
+
             
             {% else %} 
                 {% for lesson in lessons %}
