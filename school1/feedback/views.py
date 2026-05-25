@@ -26,5 +26,5 @@ def feedback(request):
 
 
 def questions (request):
-    feedback  = Feedback.objects.all()
-    return render(request, 'feedback/feedback.html', {"feedback": feedback})
+    feedback = Feedback.objects.all()
+    return render(request, 'feedback/feedback.html', {"feedback":feedback})

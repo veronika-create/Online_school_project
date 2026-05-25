@@ -11,15 +11,17 @@
 
 
 {% block cards_of_lessons %} 
+{% for feedback in feedback %}
 
 
+<div class="h3_pr">
+<h4>{{feedback.name}}</h4>
+</div>
 <div class="p_pr"> 
-<p>{{feedback.name}}</p><br><br>
-<p>{{feedback.email}}</p><br><br>
-<p>{{feedback.description|linebreaksbr}}</p><br><br>
-</div>  
-
-
+{{feedback.description|linebreaksbr}}
+</div>
+ 
+{% endfor %} 
 <div class="img_al2">
 <img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
 </div>
