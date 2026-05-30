@@ -31,7 +31,7 @@
                 </li>
                 {% endfor %}
             </ul>
-            {% endif %}
+           
             <a class="btn btn-primary mt-3" href="{% url 'polls:list' %}" role="button">Back To Polls</a>
         </div>
         </div>
@@ -42,10 +42,4 @@
 <img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
 </div>
 {% endblock cards_of_lessons %}
-  {% block connect %}
-<div class="p1">
-    <p><b>Нужна помощь? <br><br>Задай нам вопрос!</b> <br><br>
-        <a href="{% url "groups:Help_prep" %}">Форма обратной связи</a>
-    </p>
-</div>
-{% endblock connect %}
+

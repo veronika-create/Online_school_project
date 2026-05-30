@@ -1,84 +1,52 @@
-from django.contrib import messages
 
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
+from testing.forms import TestingForm
 
-from testing.forms import EditTestForm, TestAddForm
 from testing.models import Test
 
+@login_required
 def tests(request):
 	questions = Test.objects.all()
+	
+	if request.method == "POST":
+		form=TestingForm (data=request.POST)
+		selected_option = request.POST['questions']
+		if selected_option == 'option1':
+			questions.option1_count += 1
+			form.save()
 
-	return render(request, 'testing/test.html', { 'questions': questions})
+		elif selected_option == 'option2':
+			questions.option2_count += 0
+			form.save()
 
+		elif selected_option == 'option3':
+			questions.option3_count += 0
+			form.save()
 
-def test_add(request):
-    if request.user.has_perm('test.test_add'):
-        if request.method == 'POST':
-            form = TestAddForm(request.POST)
-            if form.is_valid:
-                test = form.save(commit=False)
-                test.owner = request.user
-                test.save()
-                Choice(
-                    test=test, choice_text=form.cleaned_data['choice1']).save()
-                Choice(
-                    test=test, choice_text=form.cleaned_data['choice2']).save()
+		elif selected_option == 'option4':
+			questions.option4_count += 0
+			form.save()
 
-                messages.success(
-                    request, "Изменения успешно тобавлены.", extra_tags='alert alert-success alert-dismissible fade show')
+		else:
+			form=TestingForm()
 
-                return redirect('testing/test.html')
-        else:
-            form = TestAddForm()
-        context = {
-            'form': form,
-        }
-        return render(request, 'testing/test_add.html', context)
-    else:
-        return HttpResponse("Извините, но у вас нет на это разрешения!")
+			return HttpResponseRedirect(reverse('main:index'))
+		
+		form.save()
 
-
-
-def test_edit(request, test_id):
-    test = get_object_or_404(Test, pk=test_id)
-    if request.user != test.owner:
-        return redirect('main:index')
-
-    if request.method == 'POST':
-        form = EditTestForm(request.POST, instance=test)
-        if form.is_valid:
-            form.save()
-            messages.success(request, "Теуст успешно изменён.",
-                             extra_tags='alert alert-success alert-dismissible fade show')
-            return redirect("testing:test")
-
-    else:
-        form = EditTestForm(instance=test)
-
-    return render(request, "testing/test_edit.html", {'form': form, 'test': test})
+	context= {
+        'form': form,
+          }
 
 
+	return render(request, 'testing/test.html', context=context)
 
-def test_delete(request, test_id):
-    test = get_object_or_404(Test, pk=test_id)
-    if request.user != test.owner:
-        return redirect('main:index')
-    test.delete()
-    messages.success(request, "Тест удалён.",
-                     extra_tags='alert alert-success alert-dismissible fade show')
-    return redirect("users:profile")
+@login_required
+def results(request):
+	answers = Test.objects.all()
 
-
-def end_test(request, test_id):
-    test = get_object_or_404(Test, pk=test_id)
-    if request.user != test.owner:
-        return redirect('testing:results')
-
-    if test.active is True:
-        test.active = False
-        test.save()
-        return render(request, 'testing/results.html', {'test': test})
-    else:
-        return render(request, 'testing/results.html', {'test': test})
-
+	return render(request, 'testing/results.html', { 'answers': answers})

@@ -13,16 +13,6 @@ def lessons(request):
 
 def lessons_all (request, lessons_slug):
     lesson=Lessons.objects.get(slug=lessons_slug)
-
-    if request.method == 'POST':
-
-        file_format = request.POST['file-format']
-        lessons_resource = LessonsResource()
-        dataset = lessons_resource.export()
-        if file_format == 'XLS (Excel)':
-            response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
-            response['Content-Disposition'] = 'attachment; filename="lesson.xls"'
-            return response   
    
     context={
         'lesson': lesson
