@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block css %}
-    <title>Оценки</title>
+    <title>Результаты</title>
     <link rel="stylesheet" href="{% static "styles/base.css" %}">
     <link rel="stylesheet" href="{% static "styles/results.css" %}">
     <link rel="stylesheet" href="{% static "styles/Content.css" %}">
@@ -10,36 +10,35 @@
     <link rel="stylesheet" href="{% static "styles/Log_in.css" %}">
 {% endblock css %}
    
-{% block cards_of_lessons %}
+{% block cards_of_lesson%}
     <div>
-
-<div class="container_log">
-    <div class="content_log">
-                <form action="#">
-                    <div class="input-box_reg">
-     {% for choice in poll.get_result_dict %}
-        <div class="progress-bar bg-{{ choice.alert_class }}" role="progressbar" style="width: {{ choice.percentage }}%;" aria-valuenow="30" aria-valuemin="0"
-            aria-valuemax="100"><b>{{ choice.text }}-{{ choice.percentage|floatformat }}%</b></div>
-        {% endfor %}
-
-    </div>
-            <ul class="list-group">
-                {% for choice in poll.choice_set.all %}
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {{ choice.choice_text }}
-                    <span class="badge badge-primary badge-pill">{{ choice.get_vote_count }}</span>
-                </li>
-                {% endfor %}
-            </ul>
-           
-            <a class="btn btn-primary mt-3" href="{% url 'polls:list' %}" role="button">Back To Polls</a>
-        </div>
-        </div>
-    </div>
-</div>
-
-<div class="img_al2">
-<img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
-</div>
-{% endblock cards_of_lessons %}
-
+                                        <h5 class="text-200 fs--1">Результаты пользователя {{ request.user.username }}</h5>
+                                        <h5 class="text-400">{{ quiz }}</h5>
+                                        <div class="table-responsive mt-5">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" class="text-primary text-center">Показатели</th>
+                                                        <th scope="col" class="text-primary text-center">Результаты</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-200 fw-bold text-center">Всего вопросов в тесте</td>
+                                                        <td class="text-200 fw-bold text-center">{{ number }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-200 fw-bold text-center">Правильные ответы</td>
+                                                        <td class="text-200 fw-bold text-center">{{ correct }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-200 fw-bold text-center">Неправильные ответы</td>
+                                                        <td class="text-200 fw-bold text-center">{{ wrong }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-200 fw-bold text-center">Пропущено вопросов</td>
+                                                        <td class="text-200 fw-bold text-center">{{ skipped }}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>{% endblock connect %}

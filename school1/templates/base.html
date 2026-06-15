@@ -44,7 +44,7 @@
                     {% for lesson in lessons %}
                     <a href="{% url "lessons_all:lessons_all" lesson.slug %}">{{lesson.name}}</a>
                     {% endfor %}
-                    <a href="{% url "testing:tests" %}"> Тесты</a>
+                    <a href="{% url "testing:test" %}"> Тесты</a>
                     
                     
                     {% if user.is_admim  or  user.is_staff%}

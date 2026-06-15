@@ -1,52 +1,48 @@
+from django.contrib import messages
 
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse
-from testing.forms import TestingForm
+from django.contrib.auth.decorators import login_required
+from testing.forms import  testing
+from testing.models import Result, Test, Question, Result, Choice, Answer
 
-from testing.models import Test
+from django.db.models import F
 
-@login_required
 def tests(request):
 	questions = Test.objects.all()
-	
-	if request.method == "POST":
-		form=TestingForm (data=request.POST)
-		selected_option = request.POST['questions']
-		if selected_option == 'option1':
-			questions.option1_count += 1
-			form.save()
 
-		elif selected_option == 'option2':
-			questions.option2_count += 0
-			form.save()
-
-		elif selected_option == 'option3':
-			questions.option3_count += 0
-			form.save()
-
-		elif selected_option == 'option4':
-			questions.option4_count += 0
-			form.save()
-
-		else:
-			form=TestingForm()
-
-			return HttpResponseRedirect(reverse('main:index'))
-		
-		form.save()
-
-	context= {
-        'form': form,
-          }
-
-
-	return render(request, 'testing/test.html', context=context)
+	return render(request, 'testing/test.html', { 'questions': questions})
 
 @login_required
-def results(request):
-	answers = Test.objects.all()
+#def test(request):
+    #if question.qtype == 'single':
+           # correct_answer = question.get_answers()
+           # user_answer = question.answer_set.get(pk=request.POST['answer'])
+            #choice = Choice(user=request.user, 
+                #question=question, answer=user_answer)
+            #choice.save()
+            #is_correct = correct_answer == user_answer
+           # result, created = Result.objects.get_or_create(user=request.user)
+           # if is_correct is True:
+               # result.correct = F('correct') + 1
+           # else:
+                #result.wrong = F('wrong') + 1
+           # result.save()
 
-	return render(request, 'testing/results.html', { 'answers': answers})
+       
+        
+#return render (request, 'testing/test.html')
+
+@login_required
+def test_results(request, test_id):
+    questions = test.question_set.all()
+    results = Result.objects.filter(user=request.user).values()
+    correct = [i['correct'] for i in results][0]
+    wrong = [i['wrong'] for i in results][0]
+    context = {
+    'correct': correct, 
+    'wrong': wrong, 
+    'number': len(questions), 
+    'skipped': len(questions) - (correct + wrong)}
+    return render(request, 
+        'testing/results.html', context)
