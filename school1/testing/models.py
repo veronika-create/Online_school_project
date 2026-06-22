@@ -25,9 +25,9 @@ class Question(models.Model):
         single = 'single'
         multiple = 'multiple'
    
-    name = models.CharField(max_length=350, verbose_name='Название')
+    name = models.CharField(max_length=350,  blank=True, unique=True, verbose_name='Название')
     qtype = models.CharField(max_length=8, choices=qtype.choices, default=qtype.single)
-    explanation = models.CharField(max_length=550)
+    explanation = models.CharField(max_length=550, blank=True, unique=True)
 
 
     def get_answers(self):
@@ -55,8 +55,8 @@ class Question(models.Model):
         verbose_name_plural = 'Вопросы'
 
 class Answer(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    name = models.CharField(max_length=200)
+    question = models.ForeignKey(Question,  on_delete=models.CASCADE)
+    name = models.CharField(max_length=200, blank=True, unique=True )
     is_correct = models.BooleanField(default=False)
 
     def __str__(self):
@@ -68,8 +68,8 @@ class Answer(models.Model):
 
 class Choice(models.Model):
     #user = models.ForeignKey(AbstractUser, on_delete=models.CASCADE)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question,  on_delete=models.CASCADE)
+    answer = models.ForeignKey(Answer,  on_delete=models.CASCADE)
      
 class Result(models.Model):
     #user = models.ForeignKey(AbstractUser, on_delete=models.CASCADE)

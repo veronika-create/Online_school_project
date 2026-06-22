@@ -10,57 +10,39 @@
 
     <div>
  
-
+ {% block connect %}
 <div class="container_log">
     <div class="content_log">
         <div class="img">
             <img src="{% static "img/elephpant-running-78x48.gif" %}" alt="" width="70%">
         </div> 
- <section>
-     <form id="question-form"
-                                              action="{% url 'quizzes:grade_question' quiz.id question.id %}"
-                                              method="post">
-                                            {% csrf_token %}
-                                            {% if question.qtype == 'single' %}
-                                                <div class="text-center">Только один ответ здесь - правильный.</div>
-                                                {% for answer in question.answer_set.all %}
-                                                    <div class="form-check">
-                                                        <input type="radio"
-                                                               name="answer"
-                                                               class="form-check-input"
-                                                               id="answer{{ forloop.counter }}"
-                                                               value="{{ answer.id }}"/>
-                                                        <label for="answer{{ forloop.counter }}" class="text-200">{{ answer.name }}</label>
-                                                    </div>
-                                                {% endfor %}
-                                            {% else %}
-                                                <div class="text-center">Здесь несколько правильных ответов.</div>
-                                                {% for answer in question.answer_set.all %}
-                                                    <div class="form-check">
-                                                        <input type="checkbox"
-                                                               name="answer"
-                                                               class="form-check-input"
-                                                               id="answer{{ forloop.counter }}"
-                                                               value="{{ answer.id }}"/>
-                                                        <label for="answer{{ forloop.counter }}" class="text-200">{{ answer.name }}</label>
-                                                    </div>
-                                                {% endfor %}
-                                            {% endif %}
-                                            <div class="text-center">
-                                                <input type="submit"
-                                                       value="Ответить"
-                                                       class="btn btn-warning rounded-pill mt-4"/>
-                                            </div>
- </section>
+ {% endblock connect %}
+
+ {% block log_in %}
+<div class="container_log">
+    <div class="content_log">
+     <form action="{% url 'testing:test'%}" method="post">
+      {% csrf_token %}
+
+    <div class="h3_pr">
+    <h4>{{choise.question}}</h4>
+    </div>
+  
+                <div class="input-box">
+                    <input type="radio" name="answer" class="form-check-input" id="id_answer" value= "{{form.anser.value}}" required >
+                </div>
+        
 
 
+            <div class="button">
+                <button type="submit">Ответить</button>
+            </div>
+
+      </form>
+    </div>
 </div>
-
-
-
-
-
-
-<div class="img_al2">
-<img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
-</div>
+{% block cards_of_lessons %} 
+    <div class="img_al2">
+        <img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
+    </div>
+{% endblock cards_of_lessons %}

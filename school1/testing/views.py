@@ -1,40 +1,57 @@
-from django.contrib import messages
 
+from testing.forms import QuestionForm, AnswerForm, ChoiceForm 
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from testing.forms import  testing
+
 from testing.models import Result, Test, Question, Result, Choice, Answer
 
 from django.db.models import F
 
+#@login_required
+#def tests(request):
+	#questions =  Question.objects.all()
+
+	#return render(request, 'testing/test.html', { 'questions': questions})
+
+@login_required
 def tests(request):
-	questions = Test.objects.all()
+    if request.method == 'POST':
+        form = ChoiceForm (data=request.POST)
+        question = Choice.objects.all()
+        if question.qtype == 'single':
+            correct_answer = question.get_answers()
+            choice = Choice(user=request.user, 
+                form=form)
+            choice.save()
+            is_correct = correct_answer
+            result, created = Result.objects.get_or_create(user=request.user)
+            if is_correct is True:
+                result.correct = F('correct') + 1
+            else:
+                result.wrong = F('wrong') + 1
+            result.save()
 
-	return render(request, 'testing/test.html', { 'questions': questions})
+        elif question.qtype == 'multiple':
+            correct_answer = question.get_answers()
+            answers_ids = request.POST.getlist('answer')
+            if answers_ids:
+                for answer_id in answers_ids:
+                    choice = Choice(user=request.user, 
+                        question=question, )
+                    choice.save()
+                is_correct = correct_answer
+                result, created = Result.objects.get_or_create(user=request.user)
+                if is_correct is True:
+                    result.correct = F('correct') + 1
+                else:
+                    result.wrong = F('wrong') + 1
+                result.save()
+
+    return render (request, 'testing/test.html')
 
 @login_required
-#def test(request):
-    #if question.qtype == 'single':
-           # correct_answer = question.get_answers()
-           # user_answer = question.answer_set.get(pk=request.POST['answer'])
-            #choice = Choice(user=request.user, 
-                #question=question, answer=user_answer)
-            #choice.save()
-            #is_correct = correct_answer == user_answer
-           # result, created = Result.objects.get_or_create(user=request.user)
-           # if is_correct is True:
-               # result.correct = F('correct') + 1
-           # else:
-                #result.wrong = F('wrong') + 1
-           # result.save()
-
-       
-        
-#return render (request, 'testing/test.html')
-
-@login_required
-def test_results(request, test_id):
+def test_results(request):
     questions = test.question_set.all()
     results = Result.objects.filter(user=request.user).values()
     correct = [i['correct'] for i in results][0]

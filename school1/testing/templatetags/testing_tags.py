@@ -10,3 +10,7 @@ register = template.Library()
 def tag_testing ():
     return  Test.objects.all() 
 
+@register.simple_tag()
+def tag_answers ():
+    return  Test.objects.all() 
+
