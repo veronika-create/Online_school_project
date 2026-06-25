@@ -6,11 +6,10 @@ from testing import views
 app_name = 'testing'
 
 urlpatterns = [
-    path('test/', views.tests,  name='test'),
+    path('test/', views.test,  name='test'),
    
-    path('results/<int:test_id>/', views.test_results, name='test_results'),
+    path('results/', views.results, name='results'),
 
 	
 ]
 
-#path('<int:question_id>/grade/', views.test, name='test'),

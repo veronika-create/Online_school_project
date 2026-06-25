@@ -1,65 +1,42 @@
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
+from testing.models import TestQuestion, UserAnswer, TestChoice
+from django.db.models import Count, Q
 
-from testing.forms import QuestionForm, AnswerForm, ChoiceForm 
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-
-from testing.models import Result, Test, Question, Result, Choice, Answer
-
-from django.db.models import F
-
-#@login_required
-#def tests(request):
-	#questions =  Question.objects.all()
-
-	#return render(request, 'testing/test.html', { 'questions': questions})
-
-@login_required
-def tests(request):
+def test(request):
+    questions = TestQuestion.objects.prefetch_related('choices').all()
     if request.method == 'POST':
-        form = ChoiceForm (data=request.POST)
-        question = Choice.objects.all()
-        if question.qtype == 'single':
-            correct_answer = question.get_answers()
-            choice = Choice(user=request.user, 
-                form=form)
-            choice.save()
-            is_correct = correct_answer
-            result, created = Result.objects.get_or_create(user=request.user)
-            if is_correct is True:
-                result.correct = F('correct') + 1
-            else:
-                result.wrong = F('wrong') + 1
-            result.save()
+        for q in questions:
+            choice_id = request.POST.get(f'choice_{q.id}')
+            if choice_id:
+                choice = get_object_or_404(TestChoice, id=choice_id, question=q)
+                UserAnswer.objects.update_or_create(
+                    user=request.user if request.user.is_authenticated else None,
+                    question=q,
+                    defaults={'selected_choice': choice}
+                )
+        return HttpResponseRedirect (reverse('testing:results'))
+    
+    return render(request, 'testing/test.html', {'questions': questions})
 
-        elif question.qtype == 'multiple':
-            correct_answer = question.get_answers()
-            answers_ids = request.POST.getlist('answer')
-            if answers_ids:
-                for answer_id in answers_ids:
-                    choice = Choice(user=request.user, 
-                        question=question, )
-                    choice.save()
-                is_correct = correct_answer
-                result, created = Result.objects.get_or_create(user=request.user)
-                if is_correct is True:
-                    result.correct = F('correct') + 1
-                else:
-                    result.wrong = F('wrong') + 1
-                result.save()
+def results(request):
+    qs = UserAnswer.objects.select_related('question', 'selected_choice')
+    if not request.user.is_authenticated:
+        # для анонимных можно фильтровать по сессии или вообще не показывать личные результаты
+        qs = qs.none()
+    else:
+        qs = qs.filter(user=request.user)
 
-    return render (request, 'testing/test.html')
+    total = qs.count()
+    correct = qs.filter(selected_choice__is_correct=True).count()
+    percentage = (correct / total * 100) if total else 0
 
-@login_required
-def test_results(request):
-    questions = test.question_set.all()
-    results = Result.objects.filter(user=request.user).values()
-    correct = [i['correct'] for i in results][0]
-    wrong = [i['wrong'] for i in results][0]
-    context = {
-    'correct': correct, 
-    'wrong': wrong, 
-    'number': len(questions), 
-    'skipped': len(questions) - (correct + wrong)}
-    return render(request, 
-        'testing/results.html', context)
+    answers = qs.order_by('question__id')
+
+    return render(request, 'testing/results.html', {
+        'answers': answers,
+        'total': total,
+        'correct': correct,
+        'percentage': percentage,
+    })

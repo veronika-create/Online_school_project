@@ -16,31 +16,30 @@
         <div class="img">
             <img src="{% static "img/elephpant-running-78x48.gif" %}" alt="" width="70%">
         </div> 
+    </div>
  {% endblock connect %}
 
- {% block log_in %}
-<div class="container_log">
-    <div class="content_log">
-     <form action="{% url 'testing:test'%}" method="post">
-      {% csrf_token %}
+{% block log_in %}
+<form method="post">
+  {% csrf_token %}
+  {% for question in questions %}
+    <h3>{{ question.text }}</h3>
+    {% for choice in question.choices.all %}
+      <label>
+        <input type="radio" name="choice_{{ question.id }}" value="{{ choice.id }}">
+        {{ choice.text }}
+      </label>
 
-    <div class="h3_pr">
-    <h4>{{choise.question}}</h4>
-    </div>
-  
-                <div class="input-box">
-                    <input type="radio" name="answer" class="form-check-input" id="id_answer" value= "{{form.anser.value}}" required >
-                </div>
-        
+    {% endfor %}
+    <hr>
+  {% endfor %}
+<div class="button">
+  <button type="submit" class='btn btn-dark'>Отправить</button>
+</div> 
+</form>
+{% endblock log_in %} 
 
 
-            <div class="button">
-                <button type="submit">Ответить</button>
-            </div>
-
-      </form>
-    </div>
-</div>
 {% block cards_of_lessons %} 
     <div class="img_al2">
         <img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">

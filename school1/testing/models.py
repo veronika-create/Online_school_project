@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.conf import settings 
+from django.contrib.auth.models import User
 
 class Test(models.Model):
     #owner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -75,3 +76,33 @@ class Result(models.Model):
     #user = models.ForeignKey(AbstractUser, on_delete=models.CASCADE)
     correct = models.IntegerField(default=0)
     wrong = models.IntegerField(default=0)
+
+
+
+
+
+class TestQuestion(models.Model):
+    text = models.CharField(max_length=500)
+    is_multiple_choice = models.BooleanField(default=False)  # если нужно
+
+    def __str__(self):
+        return self.text
+
+class TestChoice(models.Model):
+    question = models.ForeignKey(TestQuestion, related_name='choices', on_delete=models.CASCADE)
+    text = models.CharField(max_length=200)
+    is_correct = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.question.text} – {self.text}"
+
+class UserAnswer(models.Model):
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+    
+    question = models.ForeignKey(TestQuestion, on_delete=models.CASCADE)
+    selected_choice = models.ForeignKey(TestChoice, on_delete=models.SET_NULL, null=True)
+    answered_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'question')  # один ответ на вопрос от пользователя

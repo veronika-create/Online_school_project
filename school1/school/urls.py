@@ -13,6 +13,7 @@ urlpatterns = [
     path('', include('main.urls', namespace='main')),
     path('lessons/', include('lessons.urls', namespace='lessons_all')),
     path('user/', include('users.urls', namespace='user')),
+    path('test/', include('testing.urls', namespace='test')),
     #path('prep/', include('groups.urls', namespace='groups')),
     path('subjects_all/', include('main.urls', namespace='subjects_all')),
     path('feedback/', include('feedback.urls', namespace='feedback')),
