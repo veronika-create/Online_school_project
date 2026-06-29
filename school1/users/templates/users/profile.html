@@ -98,9 +98,8 @@
 <img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
 </div>
 
-{% block cards_of_lessons %}
-    <div class="p1">
-        <P>
+{% block beautiful_img %}
+    <div class="h2_pr_help">
             {% if user.is_admim or user.is_staff%}
             <a href="{% url "main:index" %}">Курсы</a><br><br>
             <a href="{% url "main:index" %}">Группы</a><br><br>
@@ -112,9 +111,12 @@
                 <a href="{% url "lessons_all:lessons_all" lesson.slug %}">{{lesson.name}}</a>
                 {% endfor %}
             {% endif %}
-        </P>
     </div>
+
+
+
+
 <div class="img_al2">
 <img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
 </div>
-{% endblock cards_of_lessons %}
+ {% endblock beautiful_img  %}

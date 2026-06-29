@@ -106,3 +106,4 @@ class UserAnswer(models.Model):
 
     class Meta:
         unique_together = ('user', 'question')  # один ответ на вопрос от пользователя
+

@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="{% static "styles/Cards.css" %}">
     <link rel="stylesheet" href="{% static "styles/Log_in.css" %}">
 {% endblock css %}
-   
+ 
 {% block log_in %}
+<div class="p_pr">  
 <h2>Ваши результаты</h2>
 <p>Правильных: {{ correct }} из {{ total }} ({{ percentage|floatformat:1 }}%)</p>
 
@@ -30,6 +31,7 @@
     <li>Нет ответов.</li>
   {% endfor %}
 </ul>
+</div>
 {% endblock log_in %} 
 
 {% block cards_of_lessons %} 

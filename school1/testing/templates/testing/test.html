@@ -10,17 +10,11 @@
 
     <div>
  
- {% block connect %}
-<div class="container_log">
-    <div class="content_log">
-        <div class="img">
-            <img src="{% static "img/elephpant-running-78x48.gif" %}" alt="" width="70%">
-        </div> 
-    </div>
- {% endblock connect %}
+
 
 {% block log_in %}
-<form method="post">
+<div class="p_pr"> 
+  <form method="post">
   {% csrf_token %}
   {% for question in questions %}
     <h3>{{ question.text }}</h3>
@@ -33,15 +27,18 @@
     {% endfor %}
     <hr>
   {% endfor %}
-<div class="button">
-  <button type="submit" class='btn btn-dark'>Отправить</button>
-</div> 
+    <div class="button">
+  <br><br>
+  <button type="submit" class='btn btn-dark'>Отправить</button>  
+  </div>
 </form>
+</div>
+
 {% endblock log_in %} 
 
-
-{% block cards_of_lessons %} 
-    <div class="img_al2">
-        <img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
-    </div>
+{% block cards_of_lessons %}   
+  <div class="img">
+      <img src="{% static "img/elephpant-running-78x48.gif" %}" alt="" width="70%">
+  </div> 
 {% endblock cards_of_lessons %}
+
