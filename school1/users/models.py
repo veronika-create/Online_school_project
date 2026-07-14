@@ -63,6 +63,7 @@ class List_of_teachers_for_goups (models.Model):
     
 class List_of_students (models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
+    description = models.TextField(blank=True, null=True, verbose_name='Описание')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
     
     
@@ -72,6 +73,33 @@ class List_of_students (models.Model):
         verbose_name = 'список студентов'
         verbose_name_plural = 'списки студентов'
 
+    
+    def __str__(self):
+        return f'{self.name}' 
+
+
+class Contacts_of_students(models.Model):
+    name = models.CharField(max_length=150, unique=True, verbose_name='Название')
+    description = models.TextField(blank=True, null=True, verbose_name='Описание')
+    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
+    
+    class Meta:
+        db_table =  'сontacts_of_students'
+
+    
+    def __str__(self):
+        return f'{self.name}' 
+
+
+
+class Contacts_of_teachers(models.Model):
+    name = models.CharField(max_length=150, unique=True, verbose_name='Название')
+    description = models.TextField(blank=True, null=True, verbose_name='Описание')
+    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
+    
+    
+    class Meta:
+        db_table =  'сontacts_of_teachers'
     
     def __str__(self):
         return f'{self.name}' 

@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+<title>Группы</title>
+{% block css %}
+<link rel="stylesheet" href="{% static "styles/base.css" %}">
+<link rel="stylesheet" href="{% static "styles/Cards.css" %}">
+<link rel="stylesheet" href="{% static "styles/Content.css" %}">    
+{% endblock css %}
+   
+
+{% block cards_of_lessons %}
+  {% for stquestion in stquestions %}               
+    <div class="p_pr">
+      <h2>{{ stquestion.name|linebreaksbr}}</h2>
+      <h2>{{ stquestion.description|linebreaksbr}}</h2>
+    </div>
+
+    <div class="img_al2">
+      <img src="{% static "img/man.png" %}" alt="Group image" width="70%">
+    </div>
+{% empty %}
+    <p>Нет доступных групп.</p>           
+{% endfor %}
+{% endblock cards_of_lessons %} 
+
+
+
+

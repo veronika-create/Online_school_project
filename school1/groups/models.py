@@ -7,14 +7,9 @@ class Courses(models.Model):
 
 
 
-    class Meta:
-        db_table =  'cours'
-        verbose_name = 'курс'
-        verbose_name_plural = 'курсы'
-
     def __str__(self):
         return f'{self.name}' 
-        
+
 class Groups(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
@@ -25,9 +20,33 @@ class Groups(models.Model):
     
     class Meta:
         db_table =  'groups'
-        verbose_name = 'группы'
+        verbose_name = 'группа'
         verbose_name_plural = 'группы'
 
+    
+    def __str__(self):
+        return f'{self.name}' 
+
+class Teachers_сourses(models.Model):
+    name = models.CharField(max_length=150, unique=True, verbose_name='Название')
+    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
+
+    class Meta:
+        db_table =  'tcours'
+        verbose_name = 'уч.курс'
+        verbose_name_plural = 'уч.курсы'
+
+    def __str__(self):
+        return f'{self.name}'
+        
+class Teachrs_groups(models.Model):
+    name = models.CharField(max_length=150, unique=True, verbose_name='Название')
+    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
+
+    class Meta:
+        db_table =  'tgroups'
+        verbose_name = 'уч.группа'
+        verbose_name_plural = 'уч.группы'
     
     def __str__(self):
         return f'{self.name}' 

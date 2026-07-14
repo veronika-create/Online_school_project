@@ -100,16 +100,24 @@
 
 {% block beautiful_img %}
     <div class="h2_pr_help">
-            {% if user.is_admim or user.is_staff%}
-            <a href="{% url "main:index" %}">Курсы</a><br><br>
-            <a href="{% url "main:index" %}">Группы</a><br><br>
-            <a href="{% url "feedback:questions" %}">Обращения</a><br><br>
-
-            
+            {% if  user.is_superuser%}
+            <a href="{% url "groups:courses" %}">Курсы</a><br><br>
+            <a href="{% url "groups:groups" %}">Группы</a><br><br>
+            <a href="{% url "users:Students" %}">Учащиеся</a><br><br>
+            <a href="{% url "users:Contacts_of_teachers" %}">Контакты преподавателей</a><br><br>
+            <a href="{% url "feedback:questions" %}">Обращения пользователей</a><br><br>
+            {% elif user.is_staff %}
+            <a href="{% url "groups:My_courses" %}">Мои курсы</a><br><br>
+            <a href="{% url "groups:My_groups" %}">Мои группы</a><br><br>
+            <a href="{% url "users:My_students" %}">Студенты</a><br><br>
+            <a href="{% url "lessons:Marks" %}">Аттестация</a><br><br>
+            <a href="{% url "lessons:Plan" %}">Календарный план</a><br><br>
             {% else %} 
-                {% for lesson in lessons %}
-                <a href="{% url "lessons_all:lessons_all" lesson.slug %}">{{lesson.name}}</a>
-                {% endfor %}
+            <a href="{% url "lessons:homework"%}">Домашнее задание</a><br><br>
+            <a href="{% url "lessons:table" %}">Расписание</a><br><br>
+            <a href="{% url "lessons:stud_marks" %}">Оценки</a><br><br>
+            <a href="{% url "lessons:library" %}">Библиотеки</a><br><br>
+            <a href="{% url "feedback:stquestions_list" %}">Мои обращения</a><br><br>
             {% endif %}
     </div>
 

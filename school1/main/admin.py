@@ -7,9 +7,7 @@ from main.models import Subjects
 from main.models import About_us
 from main.models import Teachers 
 
-@admin.register(Categories)
-class CategoriesAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('name',)}
+
 
 @admin.register(Subjects)
 class SubjectsAdmin(admin.ModelAdmin):

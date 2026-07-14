@@ -18,6 +18,20 @@ def index(request):
 def About_us (request):
     return render(request, 'main/About_us.html' )
 
+def Contacts_of_teachers (request):
+    return render(request, 'main/Contacts_of_teachers.html' )
+
+
+
+def My_students (request):
+    return render(request, 'main/My_students.html' )
+
+def Plan (request):
+    return render(request, 'main/Plan.html' )
+
+def Students (request):
+    return render(request, 'main/Students.html' )
+
 def Teachers (request):
     return render(request, 'main/Teachers.html')
 
@@ -27,109 +41,3 @@ def subjects_all (request, subjects_slug):
         'subject': subject
     }
     return render(request, 'main/subjects_all.html', context=context)
-
-#subject = get_object_or_404 (Subjects, slug=subjects_slug)
- #context ={
-        #'image': 'image',
-        #'description': 'description',
-        #'category_selected': subjects.subjects_slug
-#class SubjectsDetailView (generic.DetailView):
-     #model=Subjects
-     #template_name='main/subjects_all.html'
-     #slug_url_kwarg= 'subjects_slug'
-     #context_object_name = 'subjects'
-     #slug_field = 'slug'
-
-     #def get_context_data(self, **kwargs):
-         #context = super().get_context_data(**kwargs)
-        
-         #return context
-    
-
-    #def get_object (self, queryset=None):
-         #return get_object_or_404 (Subjects, slug=self.kwargs[self.slug_url_kwarg])
-    
-#def login(request):
-    #return render(request, 'main/login.html')
-
-#def login(request):
-    #context= {
-        #'title': 'Home - Аторизация'
-         # }
-    #return render(request, 'main/login.html', context=context)
-
-#def registration (request):
-    #context= {
-        #'title': 'Home - Регистрация'
-          #}
-    #return render(request, 'main/registration.html', #context=context)
-
-#def profile (request):
-    #context= {
-        #'title': 'Home - Кабинет'
-          #}
-    
-    #return render(request, 'main/profile.html', #context=context)
-
-#def logout (request):
-   #...
-    
-    
-    
-    
-    
-    #def Subjects_all (request, subjects_slug):
-        #subjects = get_object_or_404 (Subjects, slug=subjects_slug)
-        #return render(request, 'main/Subjects_all.html', {"subjects": subjects})
-    
-    
-    #subjects = Subjects.objects.get(slug=subjects_slug)
-
-
-    #categories = get_object_or_404 (Subjects, slug=subjects_slug)
-    #return render(request, 'main/Subjects_all.html', {"categories": categories} )
-    #categories = Subjects.objects.get(slug=subjects_slug)
-#categories = Categories.objects.all
-    #categories= get_object_or_404 (Subjects, slug=slug)
-    #slug= "None"
-    #return render(request, 'main/Subjects_all.html', {"categories": categories})
-    #,
-
-
-#def Categories (request, categories_slug):
-    #categories= get_object_or_404 (Categories, slug=category_slug)
-
-    #return render(request, 'main/index.html.html', {'categories': category})
-
-#def connect(request):
-    #return render(request, 'main/connect.html')
-
-#def main(request):
-    #return render(request, 'main/main.html')
-
-#def Analytic(request, categories_slug):
-    #categories= get_object_or_404 (Subjects, slug=categories_slug)
-
-    #return render(request, 'main/Analytic.html', {'categories': category})    
-
-#def Design(request, subjects_slug):
-    #subjects= get_object_or_404 (Subjects, slug=subjects_slug)
-    #return render(request, 'main/Design.html', {'subjects':  subjects})
-
-#def Finance(request, subjects_slug):
-    #subjects= get_object_or_404 (Subjects, slug=subjects_slug)
-    ##return render(request, 'main/Finance.html', {'subjects':  subjects})
-
-#def Managing (request, subjects_slug):
-    #subjects= get_object_or_404 (Subjects, slug=subjects_slug)
-    #return render(request, 'main/Managing.html', {'subjects':  subjects})
-
-#def Marketing (request, subjects_slug):
-    #subjects= get_object_or_404 (Subjects, slug=subjects_slug)
-    #return render(request, 'main/Marketing.html', {'subjects':  subjects})
-
-#def Programming (request, subjects_slug):
-    #subjects= get_object_or_404 (Subjects, slug=subjects_slug)
-    #return render(request, 'main/Programming.html', {'subjects':  subjects})
-    
-

@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import redirect, render 
 from django.urls import reverse
-
+from users.models import Contacts_of_students, List_of_students, Contacts_of_teachers
 
 from users.forms import ProfileForm, UserLoginForm, UserRegistrationForm
 
@@ -70,3 +70,18 @@ def logout (request):
    messages.success(request, f"{request.user.username}, Вы вышли из аккаунта") 
    auth.logout(request)
    return redirect(reverse('main:index'))
+
+
+def Students_list (request):
+    stlists= Contacts_of_students.objects.all()
+    return render(request, 'users/Students.html', {"stlists":stlists} )
+
+def Contacts_of_teachers_list (request):
+    conts= Contacts_of_teachers.objects.all()
+    return render(request, 'users/Contacts_of_teachers.html', {"conts":conts} )
+
+def My_students_list (request):
+    mysts= List_of_students.objects.all()
+    return render(request, 'users/My_students.html', {"mysts":mysts} )
+
+

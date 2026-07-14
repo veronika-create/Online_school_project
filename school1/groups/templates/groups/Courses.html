@@ -1,40 +1,29 @@
+
 {% extends "base.html" %}
 {% load static %}
-
+<title>Курсы</title>
 {% block css %}
-    <title>Курсы</title>
-    <link rel="stylesheet" href="{% static "styles/base.css" %}">
-    <link rel="stylesheet" href="{% static "styles/Log_in.css" %}">
-    <link rel="stylesheet" href="{% static "styles/Content.css" %}">
-    <link rel="stylesheet" href="{% static "styles/Cards.css" %}">
+<link rel="stylesheet" href="{% static "styles/base.css" %}">
+<link rel="stylesheet" href="{% static "styles/Cards.css" %}">
+<link rel="stylesheet" href="{% static "styles/Content.css" %}">
 {% endblock css %}
-{% block cards_of_lessons %}  
-    <div>
+   
 
-<div class="lessons">
-    <div class="h2_pr_help">
-        <h2>Курс: Язык PHP. 
-        </h2>
-    </div>
-    <div class="h3_pr">
-        <h3>Уроки курса:</h3>
-    </div>
-    <div class="p1">
-        <P>
-            <a href="{% url "lessons:Syntacsis" %}">Основы синтаксиса</a><br><br>
-            <a href="{% url "lessons:History" %}">История PHP</a><br><br>
-            <a href="{% url "lessons:Massyvy" %}">Массивы</a><br><br>
-            <a href="{% url "lessons:Obgects" %}">Объекты и классы</a><br><br>
-            <a href="{% url "lessons:Methods" %}">Методы</a><br><br>
-            <a href="{% url "lessons:MySQL_in_PHP" %}">MySQL в PHP</a><br><br>
-            <a href="{% url "lessons:Cookies" %}">Фалы cookie</a>
-        </P>
+{% block cards_of_lessons %}
+  {% for course in courses %}               
+    <div class="p_pr">
+      <p>{{ course.name }}</p>
+
     </div>
 
- <div class="img_al2">
-<img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
-</div>
+    <div class="img_al2">
+      <img src="{% static "img/man.png" %}" alt="Group image" width="70%">
+    </div>
+  {% empty %}
+    <p>Нет доступных групп.</p>           
+  {% endfor %}
+{% endblock cards_of_lessons %}     
 
-</div>
-{% endblock cards_of_lessons %}
-<!-- Футер -->
+
+
+

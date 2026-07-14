@@ -1,30 +1,30 @@
+
 {% extends "base.html" %}
 {% load static %}
- {% block css %}
-    <title>Группы</title>
-    <link rel="stylesheet" href="{% static "styles/base.css" %}">
-    <link rel="stylesheet" href="{% static "styles/Log_in.css" %}">
-    <link rel="stylesheet" href="{% static "styles/Content.css" %}">
-    <link rel="stylesheet" href="{% static "styles/Cards.css" %}">
-  {% endblock css %}
-  {% block cards_of_lessons %}  
-    <div>
 
-<div class="lessons">
+<title>Группы</title>
+{% block css %}
+<link rel="stylesheet" href="{% static "styles/base.css" %}">
+<link rel="stylesheet" href="{% static "styles/Cards.css" %}">
+<link rel="stylesheet" href="{% static "styles/Content.css" %}">    
+{% endblock css %}
+   
 
-    <div class="h3_pr">
-        <h3>Ученики</h3>
-    </div>
-    <div class="p1">
-        <P>
-            <a href="{% url "groups:results" %}">Иванов Иван Иванович</a><br><br>
-          
-        </P>
+{% block cards_of_lessons %}
+  {% for group in groups %}               
+    <div class="p_pr">
+      <h2>{{ group.name }}</h2>
+      <p>{{ group.category }}</p>
     </div>
 
-<div class="img_al2">
-<img src="{% static "img/man.png" %}" alt="" srcset="" width="70%">
-</div>
-
-</div>
+    <div class="img_al2">
+      <img src="{% static "img/man.png" %}" alt="Group image" width="70%">
+    </div>
+{% empty %}
+    <p>Нет доступных групп.</p>           
+{% endfor %}
 {% endblock cards_of_lessons %}
+
+
+
+

@@ -1,44 +1,29 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.core.paginator import Paginator
+from django.shortcuts import get_object_or_404
+from django.template import context
 
-from groups.models import Questions
-from groups.models import Tests
+from django.views.generic import DetailView
 
-from groups.models import Answer,  Choice
-
-
+from groups.models import Courses, Groups, Teachers_сourses, Teachrs_groups
 
 
-def index(request):
-    return render(request, 'groups/index.html')
 
-def about_us_prep(request):
-    return render(request, 'groups/about_us_prep.html')
 
-def base_of_knowledge(request):
-    return render(request, 'groups/base_of_knowledge.html')
 
-def Courses(request):
-    return render(request, 'groups/Courses.html')
+def courses_list (request):
+    courses= Courses.objects.all()
+    return render(request, 'groups/Courses.html', {"courses":courses} )
 
-def Groups(request):
-    return render(request, 'groups/groups.html')
+def groups_list(request):
+    groups = Groups.objects.all()        
+    return render(request, "groups/Groups.html", {"groups": groups})
 
-def Help_prep(request):
-    return render(request, 'groups/Help_prep.html')
+def My_courses_list (request):
+    mycourses=Teachers_сourses.objects.all()
+    return render(request, 'groups/My_courses.html', {"mycourses": mycourses} )
 
-def Lectures(request):
-    return render(request, 'groups/Lectures.html')
+def My_groups_list (request):
+    mygroups = Teachrs_groups.objects.all()
+    return render(request, 'groups/My_groups.html', {"mygroups":mygroups} )
 
-def material_for_students(request):
-    return render(request, 'groups/material_for_students.html')
-
-def profile_prep(request):
-    return render(request, 'groups/profile_prep.html')
-
-def results(request):
-    return render(request, 'groups/results.html')
-
-#def Tests(request):
-    #return render(request, 'groups/Tests.html')

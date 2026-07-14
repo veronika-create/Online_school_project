@@ -14,3 +14,17 @@ class Feedback(models.Model):
         
     def __str__(self):
         return f'{self.name}' 
+    
+
+class From_customers_qestions(models.Model):
+    name = models.CharField(max_length=150, unique=True, verbose_name='Тема')
+    description = models.CharField(max_length=150, unique=True, verbose_name='Текст собщения')
+   
+
+    class Meta:
+        db_table =  'questions_custoumers'
+        verbose_name = 'Вопросуч'
+        verbose_name_plural = 'Вопросыуч'
+        
+    def __str__(self):
+        return f'{self.name}' 

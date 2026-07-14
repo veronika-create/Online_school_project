@@ -5,7 +5,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.forms.renderers import get_template
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from feedback.models import Feedback
+from feedback.models import Feedback, From_customers_qestions
 
 
 
@@ -28,3 +28,7 @@ def feedback(request):
 def questions (request):
     feedback = Feedback.objects.all()
     return render(request, 'feedback/feedback.html', {"feedback":feedback})
+
+def stquestions_list (request):
+    stquestions = From_customers_qestions.objects.all()
+    return render(request, 'feedback/fedback_students.html', {"stquestions":stquestions})
